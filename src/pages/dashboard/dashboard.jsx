@@ -1,9 +1,10 @@
 import { useState } from "react";
-import ReactECharts from 'echarts-for-react';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
+import { OpenIcon, ResolvedIcon, TotalIcon } from "../../assets/icon";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
     const DROPDOWN_BUTTON = [
@@ -42,100 +43,20 @@ export default function Dashboard() {
         }));
     };
 
-    const chart2Options = {
-        xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                data: [120, 200, 150, 80, 70, 110, 130],
-                type: 'bar'
-            }
-        ]
-    };
+    const DASHBOARD_BOX = [
+        { id: 1, icon: TotalIcon, text: 'Total Tickets', title: '40', span: 'Tickets' },
+        { id: 2, icon: OpenIcon, text: 'Open (Active)', title: '13', span: 'Tickets' },
+        { id: 3, icon: OpenIcon, text: 'Overdue', title: '13', span: 'Tickets' },
+        { id: 4, icon: ResolvedIcon, text: 'Resolved', title: '27', span: 'Tickets' },
+    ];
 
-    const chart1Options = {
-        tooltip: {
-            trigger: 'item'
-        },
-        //   legend: {
-        //     orient: 'vertical',
-        //     left: 'left'
-        //   },
-        series: [
-            {
-                name: 'Access From',
-                type: 'pie',
-                radius: ['40%', '60%'],
-                data: [
-                    { value: 1048, name: 'Active Tickets (13)' },
-                    { value: 735, name: 'Stuck Tickets (13)' },
-                    { value: 580, name: 'All Tickets (12)' },
-                    { value: 484, name: 'Resolved Tickets (27)' },
-                ],
-                color: ["#FF5C00", "#EB5757", "#2F80ED", "#339D5C"],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-
-    const chart4Options = {
-        xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                data: [120, 200, 150, 80, 70, 110, 130],
-                type: 'bar'
-            }
-        ]
-    };
-
-    const chart3Options = {
-        tooltip: {
-            trigger: 'item'
-        },
-        //   legend: {
-        //     orient: 'vertical',
-        //     left: 'left'
-        //   },
-        series: [
-            {
-                name: 'Access From',
-                type: 'pie',
-                radius: ['40%', '60%'],
-                data: [
-                    { value: 1048, name: 'Active Tickets (13)' },
-                    { value: 735, name: 'Stuck Tickets (13)' },
-                    { value: 580, name: 'All Tickets (12)' },
-                    { value: 484, name: 'Resolved Tickets (27)' },
-                ],
-                color: ["#FF5C00", "#EB5757", "#2F80ED", "#339D5C"],
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-    const [selectedChart, setSelectedChart] = useState("bar");
+    const DASHBOARD_CHART_OPTIONS = [
+        { id: 1, text: 'All Tickets', value: '32', path:'/all-tickets' },
+        { id: 2, text: 'All Tickets', value: '3', path:'/' },
+        { id: 3, text: 'All Tickets', value: '5', path:'/' },
+        { id: 4, text: 'All Tickets', value: '7', path:'/' },
+        { id: 5, text: 'All Tickets', value: '2', path:'/' },
+    ]
     return (
         <section>
             <div className="py-8">
@@ -210,57 +131,27 @@ export default function Dashboard() {
                         </DemoContainer>
                     </LocalizationProvider>
                 </div>
-                <div className="px-8 py-8 mt-6 rounded-xl bg-white border border-[#E2E8F0] ">
-                    <div className="grid grid-cols-3">
-                        <div className="px-4 py-4 rounded-xl bg-white border border-[#E2E8F0]">
-                            <div className="flex justify-between">
-                                <h2 className="text-xl font-bold text-[#17181A]">All Tickets</h2>
-                                <div className="flex">
-                                    <button
-                                        onClick={() => setSelectedChart("pie")}
-                                        className={`text-xs rounded-tl-md rounded-bl-md border border-[#E2E8F0] px-4.5 py-2
-                                               ${selectedChart === "pie"
-                                                ? "bg-[#087BB3] text-white"
-                                                : "bg-white text-[#809FB8] border-[#E2E8F0]"
-                                            }`}
-                                    >
-                                        Bar
-                                    </button>
-
-                                    <button
-                                        onClick={() => setSelectedChart("bar")}
-                                        className={`text-xs rounded-tr-md rounded-br-md border border-[#E2E8F0] px-4.5 py-2
-                                              ${selectedChart === "bar"
-                                                ? "bg-[#087BB3] text-white"
-                                                : "bg-white text-[#809FB8] border-[#E2E8F0]"
-                                            }`}
-                                    >
-                                        Pie
-                                    </button>
-                                </div>
+                <div className="grid grid-cols-4 gap-2">
+                    {DASHBOARD_BOX.map(card =>
+                        <div className="px-4 py-4 bg-white rounded-2xl border border-[#E2E8F0]" key={card.id}>
+                            <div className="flex items-center gap-2 pb-3">
+                                <card.icon />
+                                <span className="text-[#757575] text-sm font-medium">{card.text}</span>
                             </div>
-                            <div>
-                                {open && (
-                                    <div className="relative">
-
-                                        {selectedChart === "bar" && (
-                                            <>
-                                                <ReactECharts option={chart1Options} />
-                                                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                                                    <h2 className="text-2xl font-semibold">800</h2>
-                                                    <p className="text-xs text-[#64748B] font-normal">Resolved Tickets</p>
-                                                </div>
-                                            </>
-                                        )}
-
-                                        {selectedChart === "pie" && (
-                                            <ReactECharts option={chart2Options} />
-                                        )}  
-                                    </div>
-                                )}
+                            <div className="flex gap-1 items-center">
+                                <h3 className="text-[#0F172B] text-3xl font-bold">{card.title}</h3>
+                                <span className="text-[#757575] text-xs font-medium">{card.span}</span>
                             </div>
                         </div>
-                    </div>
+                    )}
+                </div>
+                <div className="px-4 py-2 bg-white rounded-2xl border border-[#E2E8F0] grid grid-cols-5">
+                    {DASHBOARD_CHART_OPTIONS.map(card =>
+                        <Link to={card.path} className="px-3 py-2 flex items-center justify-center gap-4" key={card.id}>
+                            <p className="text-[#0F172A] text-sm font-medium">{card.text}</p>
+                            <span className="text-white text-sm font-semibold px-2 py-1 rounded-full bg-[#2F80ED]">{card.value}</span>
+                        </Link>
+                    )}
                 </div>
             </div>
         </section>
