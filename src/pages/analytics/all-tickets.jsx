@@ -1,121 +1,99 @@
+
+
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { HrIcon, OpenIcon, TimeIcon } from "../../assets/icon";
 
-export default function AllTickets() {
-    const [open, setOpen] = useState(false);
-    const [selected, setSelected] = useState("Received Tickets");
+export default function AllTickets({ title, count, data }) {
+    const [open, setOpen] = useState(true);
 
-    const options = [
-        { label: "Received Tickets", value: "today" },
-        { label: "This Week", value: "week" },
-        { label: "This Month", value: "month" },
-    ];
-    // const TICKETS_HEADER = [
-    //     { id: 1, text: 'Ticket Name', },
-    //     { id: 2, text: 'Ticket Name', },
-    //     { id: 3, text: 'Ticket Name', },
-    //     { id: 4, text: 'Ticket Name', },
-    //     { id: 5, text: 'Ticket Name', },
-    // ]
-    const data = Array(7).fill({
-        name: "Project X dashboard UI prototype",
-        date: "Fri Aug 15",
-        rm: "Mandi",
-        dlpm: "Aspire",
-        dept: "HR",
-        assignee: "+1",
-        deadline: "15th July 2025",
-        days: "12 Days",
-    });
     return (
-        <div>
-            <div className="relative ">
-                <button
-                    onClick={() => setOpen(!open)}
-                    className="w-full rounded-lg bg-white text-sm border border-[#E0E0E0]">
-                    <div className="flex gap-2 items-center px-3 py-2 border-b border-[#E0E0E0]">
-                        <ChevronDown className={`w-4 h-4 transition ${open ? "rotate-180" : ""}`} />
-                        <span>{selected}</span>
-                        <span className="text-white text-sm font-semibold px-2 py-1 rounded-full bg-[#2F80ED]">3</span>
-                    </div>
-                    {open && (
-                        <div className="">
-                            {/* <div className="grid grid-cols-5">
-                                {TICKETS_HEADER.map(card =>
-                                    <div className="px-7 py-2 bg-[#F7F7F7] border border-[#E2E8F0]" key={card.id}>
-                                        <p className="text-[#7F7F7F] text-sm font-normal">{card.text}</p>
-                                    </div>
-                                )}
-                            </div> */}
-                            <div className="bg-white rounded-xl overflow-hidden">
-                                <table className="w-full text-sm">
-                                    <thead className="bg-white border-b">
-                                        <tr className="text-left text-gray-500">
-                                            <th className="p-4">Ticket Name</th>
-                                            <th>Date Added</th>
-                                            <th>RM</th>
-                                            <th>DL PM</th>
-                                            <th>Department</th>
-                                            <th>Assignee</th>
-                                            <th>Deadline</th>
-                                            <th>Days Open</th>
-                                        </tr>
-                                    </thead>
+        <div className="mt-4 border-b border-[#EDEDED] last:border-none rounded-xl bg-white">
+            <button onClick={() => setOpen(!open)} className="w-full">
+                <div className="flex items-center gap-2 px-3 py-2 border-b border-[#EDEDED]">
+                    <ChevronDown className={`w-4 h-4 transition ${open ? "rotate-180" : ""}`} />
+                    <span>{title}</span>
+                    <span className="bg-[#2F80ED] text-white text-xs px-2 py-1 rounded-full">
+                        {count}
+                    </span>
+                </div>
+            </button>
 
-                                    <tbody>
-                                        {data.map((item, i) => (
-                                            <tr key={i} className="border-b last:border-none">
-                                                <td className="p-4 flex items-center gap-2">
-                                                    <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                                    {item.name}
-                                                </td>
-                                                <td>{item.date}</td>
-                                                <td>{item.rm}</td>
-                                                <td>{item.dlpm}</td>
-                                                <td className="flex items-center gap-1 text-red-500">
-                                                    <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                                                    {item.dept}
-                                                </td>
-                                                <td>
-                                                    <div className="flex items-center gap-1">
-                                                        <img
-                                                            src="https://i.pravatar.cc/24"
-                                                            className="w-6 h-6 rounded-full"
-                                                        />
-                                                        <span className="bg-gray-100 text-xs px-2 py-1 rounded-full">
-                                                            {item.assignee}
-                                                        </span>
-                                                        <span className="border rounded-full w-6 h-6 flex items-center justify-center text-xs">
-                                                            +
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                                <td className="flex items-center gap-1 text-gray-600">
-                                                    <span>⏰</span>
-                                                    {item.deadline}
-                                                </td>
-                                                <td>{item.days}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                            {options.map(opt => (
-                                <div
-                                    key={opt.value}
-                                    onClick={() => {
-                                        setSelected(opt.label);
-                                        setOpen(false);
-                                    }}
-                                    className="px-3 py-2 text-sm cursor-pointer hover:bg-gray-100"
+            {open && (
+                <div className="overflow-x-auto">
+                    <table className="w-full text-sm whitespace-nowrap table-auto">
+                        <thead className="bg-white border-b border-[#EDEDED]">
+                            <tr className="text-left text-gray-500">
+                                <th className="px-4 py-3">Ticket Name</th>
+                                <th className="px-4 py-3">Date Added</th>
+                                <th className="px-4 py-3">RM</th>
+                                <th className="px-4 py-3">DL PM</th>
+                                <th className="px-4 py-3">Department</th>
+                                <th className="px-4 py-3">Assignee</th>
+                                <th className="px-4 py-3">Deadline</th>
+                                <th className="px-4 py-3">Days Open</th>
+                            </tr>
+                        </thead>
+                     
+                        <tbody>
+                            {data.map((item, i) => (
+                                <tr
+                                    key={i}
+                                    className="border-b border-[#EDEDED] last:border-none text-center align-middle"
                                 >
-                                    {opt.label}
-                                </div>
+                                    <td className="p-4 flex gap-2 items-center text-[#131313] text-xs font-medium">
+                                        <OpenIcon />
+                                        {item.name}
+                                    </td>
+
+                                    <td className="text-[#131313] text-xs font-medium">
+                                        {item.date}
+                                    </td>
+
+                                    <td className="text-[#131313] text-xs font-medium">
+                                        {item.rm}
+                                    </td>
+
+                                    <td className="text-[#131313] text-xs font-medium">
+                                        {item.dlpm}
+                                    </td>
+
+                                    <td className="flex justify-center items-center gap-1 text-[#131313] text-xs font-medium">
+                                        <HrIcon />
+                                        {item.dept}
+                                    </td>
+
+                                    <td>
+                                        <div className="flex justify-center items-center gap-1">
+                                            <img
+                                                src="https://i.pravatar.cc/24"
+                                                className="w-6 h-6 rounded-full"
+                                            />
+                                            <span className="bg-gray-100 text-xs px-2 py-1 rounded-full">
+                                                {item.assignee}
+                                            </span>
+                                            <span className="border border-[#BDBDBD] rounded-full w-6 h-6 flex items-center justify-center text-xs">
+                                                +
+                                            </span>
+                                        </div>
+                                    </td>
+
+                                    <td className="flex justify-center items-center gap-1 text-[#131313] text-xs font-medium">
+                                        <TimeIcon />
+                                        {item.deadline}
+                                    </td>
+
+                                    <td className="text-[#131313] text-xs font-medium">
+                                        {item.days}
+                                    </td>
+                                </tr>
                             ))}
-                        </div>
-                    )}
-                </button>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
-    )
+    );
 }
+
+

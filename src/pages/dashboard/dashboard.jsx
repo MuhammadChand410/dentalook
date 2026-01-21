@@ -5,6 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 import { OpenIcon, ResolvedIcon, TotalIcon } from "../../assets/icon";
 import { Link } from "react-router-dom";
+import AllTickets from "../analytics/all-tickets";
 
 export default function Dashboard() {
     const DROPDOWN_BUTTON = [
@@ -49,14 +50,626 @@ export default function Dashboard() {
         { id: 3, icon: OpenIcon, text: 'Overdue', title: '13', span: 'Tickets' },
         { id: 4, icon: ResolvedIcon, text: 'Resolved', title: '27', span: 'Tickets' },
     ];
-
     const DASHBOARD_CHART_OPTIONS = [
-        { id: 1, text: 'All Tickets', value: '32', path:'/all-tickets' },
-        { id: 2, text: 'All Tickets', value: '3', path:'/' },
-        { id: 3, text: 'All Tickets', value: '5', path:'/' },
-        { id: 4, text: 'All Tickets', value: '7', path:'/' },
-        { id: 5, text: 'All Tickets', value: '2', path:'/' },
-    ]
+        {
+            id: 1,
+            text: "All Tickets",
+            value: 52,
+            data: [
+                {
+                    name: "Dashboard UI",
+                    date: "Aug 15",
+                    rm: "Mandi",
+                    dlpm: "Aspire",
+                    dept: "HR",
+                    assignee: "+1",
+                    deadline: "15 July 2025",
+                    days: "12 Days",
+                },
+                {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+                {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+                {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+            ],
+        },
+        {
+            id: 2,
+            text: "Received Tickets",
+            value: 3,
+            data: [
+                {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+                 {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+                 {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+                 {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+                 {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+            ],
+        },
+        {
+            id: 3,
+            text: "Assigned Tickets",
+            value: 5,
+            data: [
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                 {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                }, {
+                    name: "Admin Panel",
+                    date: "Aug 14",
+                    rm: "Ali",
+                    dlpm: "John",
+                    dept: "IT",
+                    assignee: "+2",
+                    deadline: "18 July 2025",
+                    days: "8 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+                {
+                    name: "Payment Fix",
+                    date: "Aug 08",
+                    rm: "Hassan",
+                    dlpm: "Mark",
+                    dept: "Hr",
+                    assignee: "+3",
+                    deadline: "10 July 2025",
+                    days: "2 Days",
+                },
+            ],
+        },
+        {
+            id: 4,
+            text: "Stuck Tickets",
+            value: 7,
+            data: [
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                 {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                 {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+            ],
+        },
+        {
+            id: 5,
+            text: "Completed Tickets",
+            value: 2,
+            data: [
+                {
+                    name: "Report Issue",
+                    date: "Aug 01",
+                    rm: "Bilal",
+                    dlpm: "Sam",
+                    dept: "Ops",
+                    assignee: "+1",
+                    deadline: "05 July 2025",
+                    days: "1 Day",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+                {
+                    name: "HR Portal",
+                    date: "Aug 12",
+                    rm: "Nida",
+                    dlpm: "Zara",
+                    dept: "HR",
+                    assignee: "+2",
+                    deadline: "22 July 2025",
+                    days: "9 Days",
+                },
+            ],
+        },
+    ];
+
+    const [activeId, setActiveId] = useState(1);
+
+    const activeData = DASHBOARD_CHART_OPTIONS.find(
+        item => item.id === activeId
+    );
     return (
         <section>
             <div className="py-8">
@@ -124,14 +737,14 @@ export default function Dashboard() {
                         })}
                     </div>
                 </div>
-                <div className="rounded-tr-2xl">
+                <div className="rounded-tr-2xl mb-4">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DemoContainer components={['DateRangePicker']}>
                             <DateRangePicker />
                         </DemoContainer>
                     </LocalizationProvider>
                 </div>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-4 gap-2 mb-8">
                     {DASHBOARD_BOX.map(card =>
                         <div className="px-4 py-4 bg-white rounded-2xl border border-[#E2E8F0]" key={card.id}>
                             <div className="flex items-center gap-2 pb-3">
@@ -145,14 +758,27 @@ export default function Dashboard() {
                         </div>
                     )}
                 </div>
-                <div className="px-4 py-2 bg-white rounded-2xl border border-[#E2E8F0] grid grid-cols-5">
-                    {DASHBOARD_CHART_OPTIONS.map(card =>
-                        <Link to={card.path} className="px-3 py-2 flex items-center justify-center gap-4" key={card.id}>
-                            <p className="text-[#0F172A] text-sm font-medium">{card.text}</p>
-                            <span className="text-white text-sm font-semibold px-2 py-1 rounded-full bg-[#2F80ED]">{card.value}</span>
-                        </Link>
-                    )}
+                <div className="px-4 py-2 bg-white rounded-2xl border border-[#E2E8F0] grid grid-cols-5 gap-2">
+                    {DASHBOARD_CHART_OPTIONS.map(card => (
+                        <button
+                            key={card.id}
+                            onClick={() => setActiveId(card.id)}
+                            className={`px-3 py-2 flex items-center justify-center gap-4 rounded-xl
+                        ${activeId === card.id ? "bg-blue-50 border border-blue-400" : ""}`}
+                        >
+                            <p className="text-sm font-medium">{card.text}</p>
+                            <span className="bg-[#2F80ED] text-white text-xs px-2 py-1 rounded-full">
+                                {card.data.length}
+                            </span>
+                        </button>
+                    ))}
                 </div>
+
+                <AllTickets
+                    title={activeData.text}
+                    count={activeData.data.length}
+                    data={activeData.data}
+                />
             </div>
         </section>
     );
