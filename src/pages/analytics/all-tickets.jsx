@@ -1,10 +1,10 @@
-
-
-import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { HrIcon, OpenIcon, TimeIcon } from "../../assets/icon";
+import { ChevronDown } from "lucide-react";
 
-export default function AllTickets({ title, count, data }) {
+
+export default function AllTickets({ title, count, data, onRowClick }) {
+
     const [open, setOpen] = useState(true);
 
     return (
@@ -34,12 +34,14 @@ export default function AllTickets({ title, count, data }) {
                                 <th className="px-4 py-3">Days Open</th>
                             </tr>
                         </thead>
-                     
+
                         <tbody>
                             {data.map((item, i) => (
                                 <tr
                                     key={i}
-                                    className="border-b border-[#EDEDED] last:border-none text-center align-middle"
+                                    className="border-b border-[#EDEDED] last:border-none text-center align-middle cursor-pointer hover:bg-gray-50"
+                                    onClick={() => onRowClick(item)}
+
                                 >
                                     <td className="p-4 flex gap-2 items-center text-[#131313] text-xs font-medium">
                                         <OpenIcon />
@@ -89,6 +91,7 @@ export default function AllTickets({ title, count, data }) {
                                 </tr>
                             ))}
                         </tbody>
+
                     </table>
                 </div>
             )}
