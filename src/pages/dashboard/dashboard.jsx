@@ -1,11 +1,16 @@
-import { useState } from "react";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
-import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
-import { OpenIcon, ResolvedIcon, TotalIcon } from "../../assets/icon";
+import { useRef, useState } from "react";
+
+// import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+// import { LocalizationProvider } from '@mui/x-date-pickers-pro/LocalizationProvider';
+// import { AdapterDayjs } from '@mui/x-date-pickers-pro/AdapterDayjs';
+// import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
+import { ButtonIcon, ButtonnIcon, InputIcon, OpenIcon, ResolvedIcon, TotalIcon } from "../../assets/icon";
 import AllTickets from "../analytics/all-tickets";
-import { Link } from "react-router-dom";
+import TicketDetails from "./tickets-detail";
+import TicketHistory from "./ticcket-history";
+import TicketReveiw from "./ticket-reveiw";
+import TabButton from "./tab-button";
+import FilterHeader from "../../component/common/components";
 const DASHBOARD_CHART_OPTIONS = [
     {
         id: 1,
@@ -624,7 +629,6 @@ export default function Dashboard() {
     const [selectedTitle, setSelectedTitle] = useState("");
     const [open, setOpen] = useState(false);
 
-
     const [activeId, setActiveId] = useState(1);
 
     const DROPDOWN_BUTTON = [
@@ -670,50 +674,69 @@ export default function Dashboard() {
         { id: 4, icon: ResolvedIcon, text: 'Completed Tickets', title: '17', span: 'Tickets' },
     ];
 
-    const POPUP_LINKS = [
-        { id: 1, text: 'Ticket Details', path: '#' },
-        { id: 2, text: 'Ticket History', path: '#' },
-        { id: 3, text: 'Review and Feedback', path: '#' }
-    ]
-
-    const POPUP_BUTTON = [
-        { id: 1, text: 'Support Category', button: 'General' },
-        { id: 2, text: 'Device with Issue', button: 'Computers' },
-        { id: 3, text: 'Computer Name', button: 'TX-1024' },
-        { id: 4, text: 'Computer Location', button: 'Front Desk' }
-    ]
-
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
 
-    const sendMessage = async () => {
-        if (!input) return;
+    const sendMessage = () => {
+        if (!input.trim()) return;
 
-        const newMessage = { role: "user", content: input };
-        setMessages([...messages, newMessage]);
-
-        const response = await fetch("https://api.openai.com/v1/chat/completions", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer YOUR_API_KEY", // put your key here
-            },
-            body: JSON.stringify({
-                model: "gpt-3.5-turbo", // or gpt-4 if available
-                messages: [...messages, newMessage],
-            }),
-        });
-
-        const data = await response.json();
-        const reply = data.choices[0].message;
-
-        setMessages((prev) => [...prev, reply]);
+        setMessages([
+            ...messages,
+            {
+                id: Date.now(),
+                text: input,
+                sender: "me",
+                name: "Nicole Li",
+                time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+                avatar: "https://i.pravatar.cc/40?img=2"
+            }
+        ]);
         setInput("");
     };
+
+    const fileRef = useRef(null);
+    const openFilePicker = () => {
+        fileRef.current.click();
+    };
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        console.log("Selected file:", file);
+    };
+
+    const [activeTab, setActiveTab] = useState("details");
+
+    const badgeColors = {
+        1: "bg-[#000]",
+        2: "bg-[#2F80ED]",
+        3: "bg-[#FF5C00]",
+        4: "bg-[#800000]",
+        5: "bg-[#339D5C]",
+    };
+
+    const getBadgeColor = (id) => {
+        switch (id) {
+            case 2:
+                return "bg-[#2F80ED]";
+            case 3:
+                return "bg-[#FF5C00]";
+            case 4:
+                return "bg-[#800000]";
+            case 5:
+                return "bg-[#339D5C]";
+        }
+    };
+
+    const DROPDOWN_BUTTONS = [
+        { id: 1, title: "Province", options: ["Punjab", "Sindh", "KPK", "Balochistan"], extraClass: "sm:max-w-[97px] grow" },
+        { id: 2, title: "Region", options: ["Region 1", "Region 2", "Region 3", "Region 4"], extraClass: "sm:max-w-22 grow" },
+        { id: 3, title: "Clinics", options: ["Clinic 1", "Clinic 2", "Clinic 3", "Clinic 4"], extraClass: "sm:max-w-[84px] grow" },
+        { id: 4, title: "Department", options: ["Department 1", "Department 2", "Department 3", "Department 4"], extraClass: "sm:max-w-[122px] grow" },
+        { id: 5, title: "Users", options: ["User 1", "User 2", "User 3", "User 4"], extraClass: "sm:max-w-20 grow" },
+    ];
     return (
         <section>
             <div className="py-8">
-                <div className="px-8 flex justify-between py-8 bg-white rounded-2xl border border-[#E2E8F0]">
+                {/* <div className="px-8 flex justify-between py-8 bg-white rounded-2xl border border-[#E2E8F0]">
                     <div className="mb-4">
                         <h2 className="text-2xl font-bold">Service Desk Dashboard</h2>
                         <p className="text-sm text-[#757575]">Monitor ticket volume, progress, and</p>
@@ -772,7 +795,6 @@ export default function Dashboard() {
                                         </div>
                                     )}
                                 </div>
-
                             );
                         })}
                     </div>
@@ -783,7 +805,12 @@ export default function Dashboard() {
                             <DateRangePicker />
                         </DemoContainer>
                     </LocalizationProvider>
-                </div>
+                </div> */}
+                <FilterHeader
+                title="Service Desk Dashboard"
+                subtitle="Monitor ticket volume, progress, and performance"
+                dropdowns={DROPDOWN_BUTTONS}
+            />
                 <div className="grid grid-cols-4 gap-2 mb-8">
                     {DASHBOARD_BOX.map(card =>
                         <div className="px-4 py-4 bg-white rounded-2xl border border-[#E2E8F0]" key={card.id}>
@@ -806,13 +833,14 @@ export default function Dashboard() {
                             className={`px-3 py-2 flex items-center justify-center gap-4 rounded-xl
                             ${activeId === card.id ? "bg-white shadow-sm" : ""}`}>
                             <p className="text-sm font-medium">{card.text}</p>
-                            <span className="bg-[#2F80ED] text-white text-xs px-2 py-1 rounded-full">
+                            <span
+                                className={`text-white text-xs px-2 py-1 rounded-full
+                                         ${badgeColors[card.id] || "bg-[#2F80ED]"}`}>
                                 {card.data.length}
                             </span>
                         </button>
                     ))}
                 </div>
-
 
                 {activeId === 1 ? (
                     DASHBOARD_CHART_OPTIONS
@@ -823,8 +851,14 @@ export default function Dashboard() {
                                     title={section.text}
                                     count={section.data.length}
                                     data={section.data}
+                                    bgColor={
+                                        section.id === 2 ? "#2F80ED" :
+                                            section.id === 3 ? "#FF5C00" :
+                                                section.id === 4 ? "#800000" :
+                                                    "#339D5C"
+                                    }
                                     onRowClick={(row) => {
-                                        setSelectedTitle(row.title); // or whatever value from the row
+                                        setSelectedTitle(row.title);
                                         setOpen(true);
                                     }}
                                 />
@@ -835,39 +869,13 @@ export default function Dashboard() {
                         title={DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.text}
                         count={DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.data.length}
                         data={DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.data}
+                        bgColor={getBadgeColor(activeId)}
                         onRowClick={(row) => {
                             setSelectedTitle(row.title);
                             setOpen(true);
                         }}
                     />
                 )}
-
-                {/* {activeId === 1 ? (
-                    DASHBOARD_CHART_OPTIONS
-                        .filter(item => item.id !== 1)
-                        .map(section => (
-                            <div key={section.id} className="mb-4 rounded-xl"  onClick={() => { setSelectedTitle(card.title); setOpen(true); }}>
-                                <AllTickets className=""
-                                    title={section.text}
-                                    count={section.data.length}
-                                    data={section.data}
-                                />
-                            </div>
-                        ))
-                ) : (
-                    <AllTickets
-                        title={
-                            DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.text
-                        }
-                        count={
-                            DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.data.length
-                        }
-                        data={
-                            DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.data
-                        }
-                    />
-                )} */}
-
 
                 {open && (
                     <>
@@ -887,64 +895,93 @@ export default function Dashboard() {
                                     </div>
                                 </div>
                                 <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0] mb-5">
-                                    {POPUP_LINKS.map(card =>
-                                        <Link to={card.path} className="" key={card.id}>
-                                            <button className="px-3 py-1.5 cursor-pointer text-[#63716E] text-xs font-medium">{card.text}</button>
-                                        </Link>
-                                    )}
+                                    <div className="flex gap-9">
+                                        <TabButton
+                                            active={activeTab === "details"}
+                                            onClick={() => setActiveTab("details")}
+                                            text="Ticket Details"
+                                        />
+                                        <TabButton
+                                            active={activeTab === "history"}
+                                            onClick={() => setActiveTab("history")}
+                                            text="Ticket History"
+                                        />
+                                        <TabButton
+                                            active={activeTab === "review"}
+                                            onClick={() => setActiveTab("review")}
+                                            text="Review & Feedback"
+                                        />
+                                    </div>
                                 </div>
 
                                 <div className="flex gap-6">
-                                    <div className="max-w-[474px] w-full">
-                                        <div className="py-4.5 flex items-center gap-1 justify-between border-b border-[#E2E8F0]">
-                                            <p className="text-[#475569] text-xs font-semibold">Department</p>
-                                            <span className="text-[#272727] text-xs font-semibold">It Department</span>
-                                        </div>
-                                        {POPUP_BUTTON.map(card =>
-                                            <div className="py-4.5 flex items-center gap-1 justify-between border-b border-[#E2E8F0]" key={card.id}>
-                                                <p className="text-[#475569] text-xs font-semibold">{card.text}</p>
-                                                <span className="text-[#373940] text-sm px-4 py-2 border border-[#E2E8F0] rounded-3xl font-semibold max-w-[140px] w-full text-center" style={{ background: "rgba(52, 179, 241, 0.05)" }}>{card.button}</span>
-                                            </div>
-                                        )}
-                                        <div className="flex px-5 items-center gap-4  border-b border-[#E2E8F0] mb-4 ">
-                                            <div>
-                                                <p className="text-[#63716E] text-xs font-medium px-3 py-2">Ticket Information</p>
-                                            </div>
-                                            <div>
-                                                <p className="text-[#63716E] text-xs font-medium px-3 py-3">Attachments</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex flex-col">
-                                            <p className="text-xs font-medium text-[#63716E] pb-1.5">Short Note or Recommendation
-                                            </p>
-                                            <textarea name="message" className="bg-[#F7F7F7] text-[#203430] text-xs font-medium rounded-xl w-full h-25 px-3 py-2.5 resize-none" id="message">Description</textarea>
+                                    <div className="bg-white max-w-118 w-full mx-auto">
+                                        {activeTab === "details" && <TicketDetails />}
+                                        {activeTab === "history" && <TicketHistory />}
+                                        {activeTab === "review" && <TicketReveiw />}
+                                    </div>
+                                    <div className="max-w-118 h-141 w-full border-l border-[#E9EAEB] mx-auto bg-white flex flex-col">
+                                        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                                            {messages.map((msg) => (
+                                                <div
+                                                    key={msg.id}
+                                                    className={`flex items-end gap-2 ${msg.sender === "me" ? "justify-end" : "justify-start"
+                                                        }`}
+                                                >
+
+                                                    <div>
+                                                        <p className="text-xs text-gray-400 mb-1">
+                                                            {msg.sender === "me" ? msg.time + " " + msg.name : msg.name + " " + msg.time}
+                                                        </p>
+                                                        <div
+                                                            className={`px-4 py-2 rounded-2xl max-w-xs text-sm ${msg.sender === "me"
+                                                                ? "bg-[#0B3A4A] text-white rounded-br-none"
+                                                                : "bg-gray-100 text-gray-800 rounded-bl-none"
+                                                                }`}
+                                                        >
+                                                            {msg.text}
+                                                        </div>
+                                                    </div>
+
+                                                    {msg.sender === "me" && (
+                                                        <img src={msg.avatar} className="w-8 h-8 rounded-full" />
+                                                    )}
+                                                </div>
+                                            ))}
                                         </div>
 
-                                    </div>
-                                    <div className="max-w-[474px] h-[564px] w-full border-l border-[#E9EAEB]">
-                                        <div className="">
-                                            <div>
-                                                {messages.map((msg, i) => (
-                                                    <div className="" key={i} style={{ textAlign: msg.role === "user" ? "right" : "left" }}>
-                                                        <strong>{msg.role === "user" ? "You" : "Bot"}:</strong> {msg.content}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            <div className="flex  justify-between px-4 py-4 border-t border-[#D5D7DA]">
+                                        <div className="p-3 border border-[#E9EAEB] flex items-center gap-2 bottom-0 sticky">
+                                            <div className="flex items-center border border-[#D5D7DA] rounded-lg px-3 py-3 gap-3 max-w-87 w-full">
+                                                <InputIcon />
                                                 <input
-                                                    className="border border-[#D5D7DA] px-4 py-2.5 max-w-[350px] w-full rounded-xl"
                                                     value={input}
                                                     onChange={(e) => setInput(e.target.value)}
-                                                    placeholder="Type a message..."
+                                                    placeholder="Enter message here..."
+                                                    className="flex-1 text-sm outline-none"
                                                 />
-                                                <button onClick={sendMessage}>Send</button>
+                                            </div>
+                                            <div className="flex items-center gap-3">
+                                                <button onClick={openFilePicker}>
+                                                    <ButtonIcon />
+                                                </button>
+                                                <input
+                                                    type="file"
+                                                    ref={fileRef}
+                                                    onChange={handleFileChange}
+                                                    className="hidden"
+                                                />
+                                                <button
+                                                    onClick={sendMessage}
+                                                    className="bg-[#309356] text-white px-4 py-3 rounded-lg"
+                                                >
+                                                    <ButtonnIcon />
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </>
                 )}
             </div>

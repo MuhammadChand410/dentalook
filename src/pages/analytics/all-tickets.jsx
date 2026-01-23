@@ -3,9 +3,9 @@ import { HrIcon, OpenIcon, TimeIcon } from "../../assets/icon";
 import { ChevronDown } from "lucide-react";
 
 
-export default function AllTickets({ title, count, data, onRowClick }) {
+export default function AllTickets({ title, count, data, bgColor = "#2F80ED", onRowClick }) {
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     return (
         <div className="mt-4 border-b border-[#EDEDED] last:border-none rounded-xl bg-white">
@@ -13,7 +13,7 @@ export default function AllTickets({ title, count, data, onRowClick }) {
                 <div className="flex items-center gap-2 px-3 py-2 border-b border-[#EDEDED]">
                     <ChevronDown className={`w-4 h-4 transition ${open ? "rotate-180" : ""}`} />
                     <span>{title}</span>
-                    <span className="bg-[#2F80ED] text-white text-xs px-2 py-1 rounded-full">
+                    <span className={` text-white text-xs px-2 py-1 rounded-full ${bgColor}`} style={{ backgroundColor: bgColor }}>
                         {count}
                     </span>
                 </div>
