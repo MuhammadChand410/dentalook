@@ -9,7 +9,7 @@ export default function AllTickets({ title, count, data, bgColor = "#2F80ED", on
 
     return (
         <div className="mt-4 border-b border-[#EDEDED] last:border-none rounded-xl bg-white">
-            <button onClick={() => setOpen(!open)} className="w-full">
+            <button onClick={() => setOpen(!open)} className="w-full cursor-pointer">
                 <div className="flex items-center gap-2 px-3 py-2 border-b border-[#EDEDED]">
                     <ChevronDown className={`w-4 h-4 transition ${open ? "rotate-180" : ""}`} />
                     <span>{title}</span>

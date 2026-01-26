@@ -3,7 +3,7 @@ import { Logo, Tyyam } from "../../../assets/images"
 import { Link } from "react-router-dom";
 import { DropdownIcon, NotificationIcon, SearchIcon } from "../../../assets/icon";
 
-export default function Header() {
+export default function Header({ onMobileToggle }) {
     const [open, setOpen] = useState(false);
     const [DropdownOpen, setDropdown] = useState(false);
     const DROPDWON_LINKS = [
@@ -20,6 +20,10 @@ export default function Header() {
     return (
         <header className="py-4 px-5 sticky bg-white ">
             <div className="flex justify-between items-center">
+                <button
+                    onClick={onMobileToggle}
+                    className="md:hidden"
+                >ttt</button>
                 <div className="flex gap-20 items-center">
                     <div className="">
                         <img src={Logo} alt="logo" className="" width={140} height={30} />
@@ -65,13 +69,15 @@ export default function Header() {
                                 <div className="relative inline-block">
                                     <img src={Tyyam} alt="tyyam" className="" width={51} height={51} loading="lazy" />
                                 </div>
-                                <div className="text-left">
+                                <div className="text-left hidden md:grid">
                                     <span className="text-[#17181A] text-lg font-semibold">
                                         Mahmoud Tayyem
                                     </span>
                                     <p className="text-[15px] text-[#809FB8] font-semibold">admin</p>
                                 </div>
-                                <DropdownIcon />
+                                <div className="hidden md:block">
+                                    <DropdownIcon />
+                                </div>
                             </button>
 
                             {open && (
