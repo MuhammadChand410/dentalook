@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Ticket, Dashboard, Analytics, UserAudit, Leaderboard, Settings } from "../../../assets/icon";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 // export default function Aside() {
 
@@ -22,18 +24,19 @@ export default function Sidebar({
 }) {
 
   const { pathname } = useLocation();
-
+  const [open, setOpen] = useState(false);
   return (
     <aside
       className={`
-                              fixed md:static z-100
-                              top-0 left-0 h-full bg-white
+                              fixed md:static z-35 border-r border-[#E0E0E0]
+                              top-0 left-0 h-full bg-[#FEFEFE]
                               transition-transform md:transition-all duration-300
                               ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
                               md:translate-x-0
                               ${collapsed ? "md:w-22" : "md:w-64"}
                               w-64
-                           `}>
+                           `}
+    >
       <button
         onClick={() => {
           if (window.innerWidth < 768) {
@@ -43,22 +46,24 @@ export default function Sidebar({
           }
         }}
         className={`
-                               absolute top-6 transition-all duration-300
-                               w-6 h-6 bg-white border border-gray-300 rounded-full
+                               absolute top-0.5 transition-all duration-300
+                               w-7 h-7 bg-white border border-gray-300 rounded-full
                                items-center justify-center shadow
-                               hidden md:flex -right-3
+                               hidden md:flex -right-4
                                ${mobileOpen ? "flex md:flex" : ""}  `}
         style={{
           display: mobileOpen ? "flex" : undefined
         }}
       >
         <span
-          className={`
-                        transition-transform duration-300
-                        ${mobileOpen ? "rotate-180 md:rotate-0" : ""}
-                      `}
+          className="" onClick={() => setOpen(!open)}
         >
-          {collapsed ? ">" : "<"}
+          {/* {collapsed ? ">" : "<"}"} */}
+          <ChevronRight
+            className={`w-6 h-6 transition-transform duration-300 ${open ? "rotate-180" : "rotate-0"
+              }`}
+          />
+
         </span>
       </button>
 
@@ -70,13 +75,13 @@ export default function Sidebar({
             <Link
               key={id}
               to={path}
-             className={ `group flex items-center gap-3 px-4 py-3 rounded-lg transition-all
+              className={`group flex items-center gap-3 px-4 py-3 rounded-xl transition-all
                                  ${isActive
-                                        ? "bg-[#087BB3] text-white"
-                                        : "text-[#63716E] hover:bg-gray-200 hover:text-gray-900"
-                                    }`}
-              // className={`rounded-xl text-sm font-medium px-3.5 py-2.5 flex items-center gap-2
-              // ${isActive ? "bg-[#087BB3] text-white" : "bg-white text-[#63716E]"}`}
+                  ? "bg-[#087BB3] text-white"
+                  : "text-[#63716E] hover:bg-gray-200 hover:text-gray-900"
+                }`}
+            // className={`rounded-xl text-sm font-medium px-3.5 py-2.5 flex items-center gap-2
+            // ${isActive ? "bg-[#087BB3] text-white" : "bg-white text-[#63716E]"}`}
             >
               <Icon pathname={pathname} />
 

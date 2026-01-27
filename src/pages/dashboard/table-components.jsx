@@ -8,9 +8,9 @@ export default function TableComponents({ title, count, data, bgColor = "#2F80ED
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="mt-4 border-b border-[#EDEDED] last:border-none rounded-xl bg-white">
+        <div className="mt-4 border-b border-[#EDEDED] last:border-none rounded-md bg-white">
             <button onClick={() => setOpen(!open)} className="w-full cursor-pointer">
-                <div className="flex items-center gap-2 px-3 py-2 border-b border-[#EDEDED]">
+                <div className="flex items-center gap-2 px-7 py-4 border-b rounded-md border-[#E5E7EE]">
                     <ChevronDown className={`w-4 h-4 transition ${open ? "rotate-180" : ""}`} />
                     <span>{title}</span>
                     <span className={` text-white text-xs px-2 py-1 rounded-full ${bgColor}`} style={{ backgroundColor: bgColor }}>

@@ -70,8 +70,8 @@ export default function FilterHeader({ title, subtitle, dropdowns }) {
 
   const [open, setOpen] = React.useState(false);
   return (
-    <div className="sticky top-0 z-50 bg-white py-6 px-6 rounded-2xl border border-[#E0E0E0]">
-      <div className="flex  justify-between gap-4">
+    <div className="sticky top-0 z-25 bg-white py-6 px-6 rounded-2xl border border-[#E0E0E0]">
+      <div className="flex justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
           <p className="text-sm text-gray-500">{subtitle}</p>

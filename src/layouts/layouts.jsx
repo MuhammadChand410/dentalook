@@ -23,7 +23,7 @@ export default function Layouts() {
           collapsed={collapsed}
           setCollapsed={setCollapsed}
         />
-        <main className="flex-1 p-4 bg-gray-100 overflow-y-auto">
+        <main className="flex-1 p-4 bg-[#F9FBFC] overflow-y-auto">
           <Outlet />
         </main>
 

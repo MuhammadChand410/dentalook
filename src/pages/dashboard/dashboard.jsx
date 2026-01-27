@@ -714,7 +714,7 @@ export default function Dashboard() {
                         </div>
                     )}
                 </div>
-                <div className="px-4 py-2 bg-white rounded-2xl border border-[#E2E8F0] grid grid-cols-5 gap-2">
+                <div className="px-4 py-2 bg-white rounded-md border border-[#E2E8F0] grid grid-cols-5 gap-2">
                     {DASHBOARD_CHART_OPTIONS.map(card => (
                         <button
                             key={card.id}
@@ -769,7 +769,7 @@ export default function Dashboard() {
                 {open && (
                     <>
                         <div
-                            className="fixed inset-0 z-100 flex items-center justify-center bg-black/40"
+                            className="fixed inset-0 z-40 flex items-center justify-center bg-black/40"
                             onClick={() => setOpen(false)}
                         >
                             <div

@@ -18,7 +18,7 @@ export default function Header({ onMobileToggle }) {
         }
     ]
     return (
-        <header className="py-4 px-5 sticky bg-white ">
+        <header className="sticky top-0 bg-white border-b border-[#E0E0E0] py-3 md:py-5 ps-12 md:ps-[30px] pe-5 z-30 transition-all duration-300 left-64" style={{right:"0"}}>
             <div className="flex justify-between items-center">
                 <button
                     onClick={onMobileToggle}
@@ -28,7 +28,7 @@ export default function Header({ onMobileToggle }) {
                     <div className="">
                         <img src={Logo} alt="logo" className="" width={140} height={30} />
                     </div>
-                    <div className="bg-[#F9FBFC] rounded-xl px-4 py-3 max-w[360px] flex items-center gap-5">
+                    <div className="bg-[#F9FBFC] rounded-xl px-4 py-3  flex items-center gap-5">
                         <SearchIcon />
                         <input type="text" className="text-[#809FB8] text-base font-semibold outline-none" placeholder="search" />
                     </div>
@@ -64,7 +64,7 @@ export default function Header({ onMobileToggle }) {
                         <div className="flex items-center">
                             <button
                                 onClick={() => setOpen(!open)}
-                                className="flex items-center cursor-pointer gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition"
+                                className="flex items-center cursor-pointer gap-3 hover:bg-gray-100 transition"
                             >
                                 <div className="relative inline-block">
                                     <img src={Tyyam} alt="tyyam" className="" width={51} height={51} loading="lazy" />
