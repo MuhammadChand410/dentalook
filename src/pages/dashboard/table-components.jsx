@@ -3,7 +3,7 @@ import { HrIcon, OpenIcon, TimeIcon } from "../../assets/icon";
 import { ChevronDown } from "lucide-react";
 
 
-export default function AllTickets({ title, count, data, bgColor = "#2F80ED", onRowClick }) {
+export default function TableComponents({ title, count, data, bgColor = "#2F80ED", onRowClick }) {
 
     const [open, setOpen] = useState(false);
 

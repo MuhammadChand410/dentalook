@@ -60,7 +60,7 @@ export default function Header({ onMobileToggle }) {
                             </div>
                         )}
                     </div>
-                    <div className="relative   inline-block text-left">
+                    <div className="relative inline-block text-left">
                         <div className="flex items-center">
                             <button
                                 onClick={() => setOpen(!open)}

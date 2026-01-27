@@ -31,24 +31,6 @@ export default function TicketHistory() {
         },
     ]
     return (
-        // <div className="flex flex-col gap-8">
-        //     {TCKETS_HISTORY.map(card =>
-        //         <div className="" key={card.id}>
-        //             <div className="flex items-center gap-4 justify-between">
-        //                 <h2 className="text-[#475569] text-sm font-semibold pb-2">{card.text}</h2>
-        //                 <span className="text-[#087BB3] text-[10px] px-3 py-1 font-semibold border border-[#087BB3] rounded-2xl " style={{background:" rgba(8, 123, 179, 0.10)"}}>{card.button}</span>
-        //             </div>
-        //             <div className="flex items-center gap-1">
-        //                 <img
-        //                     src="https://i.pravatar.cc/24"
-        //                     className="w-6 h-6 rounded-full"
-        //                 />
-        //                 <p className="text-xs font-normal text-[#5A5A5A]">{card.description}</p>
-        //             </div>
-        //         </div>
-
-        //     )}
-        // </div>
         <div className="flex flex-col gap-8">
             {TCKETS_HISTORY.map((card) => (
                 <div key={card.id}>

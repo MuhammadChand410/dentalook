@@ -3,7 +3,7 @@ import Layouts from "../layouts/layouts";
 import Dashboard from "../pages/dashboard/dashboard";
 import Tickets from "../pages/tickets/tickets";
 import Analytics from "../pages/analytics/analytics";
-import AllTickets from "../pages/analytics/all-tickets";
+// import AllTickets from "../pages/analytics/all-tickets";
 import UserAudit from "../pages/user-audit/user-audit";
 
 export default function MyRoutes() {
@@ -15,7 +15,7 @@ export default function MyRoutes() {
                         <Route path="/" element={<Tickets />} />
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/analytics" element={<Analytics />} />
-                        <Route path="/all-tickets" element={<AllTickets />} />
+                        {/* <Route path="/all-tickets" element={<AllTickets />} /> */}
                         <Route path="/user-audit" element={<UserAudit />} />
                     </Route>
                 </Routes>

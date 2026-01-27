@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
 import { ButtonIcon, ButtonnIcon, InputIcon, OpenIcon, ResolvedIcon, TotalIcon } from "../../assets/icon";
-import AllTickets from "../analytics/all-tickets";
 import TicketDetails from "./tickets-detail";
 import TicketHistory from "./ticcket-history";
 import TicketReveiw from "./ticket-reveiw";
 import TabButton from "./tab-button";
 import FilterHeader from "../../component/common/components";
+import TableComponents from "./table-components";
 const DASHBOARD_CHART_OPTIONS = [
     {
         id: 1,
@@ -736,7 +736,7 @@ export default function Dashboard() {
                         .filter(item => item.id !== 1)
                         .map(section => (
                             <div key={section.id} className="mb-4 rounded-xl">
-                                <AllTickets
+                                <TableComponents
                                     title={section.text}
                                     count={section.data.length}
                                     data={section.data}
@@ -754,7 +754,7 @@ export default function Dashboard() {
                             </div>
                         ))
                 ) : (
-                    <AllTickets
+                    <TableComponents
                         title={DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.text}
                         count={DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.data.length}
                         data={DASHBOARD_CHART_OPTIONS.find(i => i.id === activeId)?.data}
@@ -769,7 +769,7 @@ export default function Dashboard() {
                 {open && (
                     <>
                         <div
-                            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+                            className="fixed inset-0 z-100 flex items-center justify-center bg-black/40"
                             onClick={() => setOpen(false)}
                         >
                             <div
