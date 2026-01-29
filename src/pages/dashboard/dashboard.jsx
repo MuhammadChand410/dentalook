@@ -686,11 +686,11 @@ export default function Dashboard() {
     };
 
     const DROPDOWN_BUTTON = [
-        { id: 1, title: "Province", options: ["Punjab", "Sindh", "KPK", "Balochistan"], extraClass: "sm:w-[100px] grow" },
-        { id: 2, title: "Region", options: ["Region 1", "Region 2", "Region 3", "Region 4"], extraClass: "sm:w-23 grow" },
-        { id: 3, title: "Clinics", options: ["Clinic 1", "Clinic 2", "Clinic 3", "Clinic 4"], extraClass: "sm:w-[92px] grow" },
-        { id: 4, title: "Department", options: ["Department 1", "Department 2", "Department 3", "Department 4"], extraClass: "sm:w-[122px] grow" },
-        { id: 5, title: "Users", options: ["User 1", "User 2", "User 3", "User 4"], extraClass: "sm:w-22 grow" },
+        { id: 1, title: "Province", options: ["Punjab", "Sindh", "KPK", "Balochistan"], extraClass: "sm:w-[100px] w-full grow" },
+        { id: 2, title: "Region", options: ["Region 1", "Region 2", "Region 3", "Region 4"], extraClass: "sm:w-23 w-full grow" },
+        { id: 3, title: "Clinics", options: ["Clinic 1", "Clinic 2", "Clinic 3", "Clinic 4"], extraClass: "sm:w-[92px] w-full grow" },
+        { id: 4, title: "Department", options: ["Department 1", "Department 2", "Department 3", "Department 4"], extraClass: "sm:w-[122px] w-full grow" },
+        { id: 5, title: "Users", options: ["User 1", "User 2", "User 3", "User 4"], extraClass: "sm:w-22 w-full grow" },
     ];
     return (
         <section>
@@ -700,7 +700,7 @@ export default function Dashboard() {
                     subtitle="Monitor ticket volume, progress, and performance"
                     dropdowns={DROPDOWN_BUTTON}
                 />
-                <div className="grid grid-cols-4 gap-2 mb-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     {DASHBOARD_BOX.map(card =>
                         <div className="px-4 py-4 bg-white rounded-2xl border border-[#E2E8F0]" key={card.id}>
                             <div className="flex items-center gap-2 pb-3">
@@ -714,7 +714,7 @@ export default function Dashboard() {
                         </div>
                     )}
                 </div>
-                <div className="px-4 py-2 bg-white rounded-md border border-[#E2E8F0] grid grid-cols-5 gap-2">
+                <div className="px-4 py-2 bg-white rounded-md border border-[#E2E8F0] grid grid-cols-1 md:grid-cols-5 gap-2">
                     {DASHBOARD_CHART_OPTIONS.map(card => (
                         <button
                             key={card.id}
@@ -769,7 +769,7 @@ export default function Dashboard() {
                 {open && (
                     <>
                         <div
-                            className="fixed inset-0 z-40 flex items-center justify-center bg-black/40"
+                            className=" fixed inset-0 bg-[#00000085] z-40 flex items-center justify-center px-4"
                             onClick={() => setOpen(false)}
                         >
                             <div
@@ -780,7 +780,7 @@ export default function Dashboard() {
                                     <h2 className="text-lg text-[#111B2B] font-semibold">Design Operational & Departmental Dashboard with Filter Options</h2>
                                     <div className="flex items-center gap-3">
                                         <p className="text-[#339D5C] text-lg font-semibold">Mark as Complete</p>
-                                        <button className="text-base text-[#339D5C] font-bold" onClick={() => setOpen(false)}>✕</button>
+                                        <button className="text-base hover:text-gray-600 text-black font-bold" onClick={() => setOpen(false)}>✕</button>
                                     </div>
                                 </div>
                                 <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0] mb-5">
@@ -803,7 +803,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
 
-                                <div className="flex gap-6">
+                                <div className="flex flex-col md:flex-row gap-6">
                                     <div className="bg-white max-w-118 w-full mx-auto">
                                         {activeTab === "details" && <TicketDetails />}
                                         {activeTab === "history" && <TicketHistory />}

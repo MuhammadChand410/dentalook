@@ -71,13 +71,13 @@ export default function FilterHeader({ title, subtitle, dropdowns }) {
   const [open, setOpen] = React.useState(false);
   return (
     <div className="sticky top-0 z-25 bg-white py-6 px-6 rounded-2xl border border-[#E0E0E0]">
-      <div className="flex justify-between gap-4">
-        <div>
+      <div className="flex flex-col md:flex-row justify-between items-start gap-4">
+        <div className="max-w-[320px] w-full">
           <h2 className="text-2xl font-bold">{title}</h2>
           <p className="text-sm text-gray-500">{subtitle}</p>
         </div>
 
-        <div className="flex flex-wrap justify-end gap-2">
+        <div className="grid grid-cols-2 sm:flex 2xl:flex-nowrap flex-wrap gap-2 sm:justify-end">
           {dropdowns.map(({ id, title, options, extraClass }) => {
             const state = dropdownState[id];
 
@@ -157,10 +157,10 @@ export default function FilterHeader({ title, subtitle, dropdowns }) {
               </div>
             )}
           </div>
-
           <button className="px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 rounded-lg">
             Clear Filters
           </button>
+
         </div>
       </div>
     </div>

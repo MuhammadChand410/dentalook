@@ -3,8 +3,6 @@ import { Ticket, Dashboard, Analytics, UserAudit, Leaderboard, Settings } from "
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
-// export default function Aside() {
-
 const SIDEBAR_LINKS = [
   { id: 1, name: "Tickets", path: "/", Icon: Ticket },
   { id: 2, name: "Dashboard", path: "/dashboard", Icon: Dashboard },
@@ -14,8 +12,6 @@ const SIDEBAR_LINKS = [
   { id: 6, name: "Settings", path: "/settings", Icon: Settings },
 ];
 
-// return (
-//   <aside className="max-w-62 w-full">
 export default function Sidebar({
   mobileOpen = false,
   onMobileClose = () => { },
@@ -47,7 +43,7 @@ export default function Sidebar({
         }}
         className={`
                                absolute top-0.5 transition-all duration-300
-                               w-7 h-7 bg-white border border-gray-300 rounded-full
+                               w-7 h-7 bg-white border hover:bg-gray-100 border-gray-300 rounded-full
                                items-center justify-center shadow
                                hidden md:flex -right-4
                                ${mobileOpen ? "flex md:flex" : ""}  `}
@@ -58,9 +54,8 @@ export default function Sidebar({
         <span
           className="" onClick={() => setOpen(!open)}
         >
-          {/* {collapsed ? ">" : "<"}"} */}
           <ChevronRight
-            className={`w-6 h-6 transition-transform duration-300 ${open ? "rotate-180" : "rotate-0"
+            className={`w-6 h-6 cursor-pointer  transition-transform duration-300 ${open ? "rotate-180" : "rotate-0"
               }`}
           />
 
@@ -80,8 +75,6 @@ export default function Sidebar({
                   ? "bg-[#087BB3] text-white"
                   : "text-[#63716E] hover:bg-gray-200 hover:text-gray-900"
                 }`}
-            // className={`rounded-xl text-sm font-medium px-3.5 py-2.5 flex items-center gap-2
-            // ${isActive ? "bg-[#087BB3] text-white" : "bg-white text-[#63716E]"}`}
             >
               <Icon pathname={pathname} />
 
@@ -96,7 +89,6 @@ export default function Sidebar({
                 {name}
               </span>
             </Link>
-
           );
         })}
       </nav>

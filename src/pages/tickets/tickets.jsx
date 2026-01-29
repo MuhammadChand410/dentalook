@@ -45,14 +45,12 @@ export default function Tickets() {
     return (
         <section>
             <div className="py-8">
-
                 <div className="px-8 py-8 bg-white rounded-2xl border border-[#E2E8F0]">
                     <h2 className="text-2xl font-bold">Tickets Panel</h2>
                     <p className="text-sm text-gray-500">
                         Submit a ticket from one of the following categories
                     </p>
                 </div>
-
                 <div className="px-8 py-8 bg-white rounded-2xl border border-[#E2E8F0] mt-4">
                     <div className="grid md:grid-cols-3 grid-cols-1 gap-3">
                         {HERO_CARDS.map((card) => (
@@ -77,14 +75,13 @@ export default function Tickets() {
                 </div>
 
                 {successOpen && (
-                    <div className="fixed inset-0 z-15 flex items-center justify-center bg-black/40">
+                    <div className="fixed inset-0 bg-[#00000085] z-15 flex items-center justify-center px-4">
                         <div className="bg-white rounded-xl shadow-lg max-w-170 w-full text-center" >
                             <div className="flex justify-between py-4 px-8 items-center gap-4 border-b border-[#E2E8F0]" >
                                 <h2 className="text-lg font-semibold text-[#111B2B]">
                                     {selectedTitle} Submitted
                                 </h2>
                                 <button className="text-base font-bold" onClick={() => setSuccessOpen(false)}>✕</button>
-
                             </div>
                             <div className="p-8">
                                 <div className="flex justify-center mb-4">
