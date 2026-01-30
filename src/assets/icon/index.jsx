@@ -82,7 +82,7 @@ export const Leaderboard = ({ pathname }) => {
     );
 };
 export const Settings = ({ pathname }) => {
-    const isActive = pathname === "/Settings";
+    const isActive = pathname === "/settings";
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke={isActive ? "#fff" : "#63716E"}>

@@ -1,6 +1,16 @@
 import React, { useState, useMemo } from "react";
-export default function Province({ pageSize = 3, headding,description,data }) {
-   
+
+const data = [
+    { province: "IT Support", avatar:'https://i.pravatar.cc/40?img=1', provincee: 'Lala Wijaya', total: 12, received: 8, assigned: 6, stuck: 6, completed: 6, days: 30 },
+    { province: "Procurement", avatar:'https://i.pravatar.cc/40?img=2', provincee: 'Fanny Rizal', total: 9, received: 6, assigned: 4, stuck: 2, completed: 7, days: 25 },
+    { province: "Payroll", avatar:'https://i.pravatar.cc/40?img=3', provincee: 'Clara Mentari', total: 15, received: 10, assigned: 8, stuck: 3, completed: 12, days: 20 },
+    { province: "HR", avatar:'https://i.pravatar.cc/40?img=4', provincee: 'Arifin Maulana', total: 7, received: 5, assigned: 3, stuck: 1, completed: 6, days: 18 },
+    { province: "Quebec", avatar:'https://i.pravatar.cc/40?img=5', provincee: 'Fanny Rizal', total: 20, received: 14, assigned: 11, stuck: 5, completed: 15, days: 22 },
+    { province: "IT Support", avatar:'https://i.pravatar.cc/40?img=8', provincee: 'Fanny Rizal', total: 11, received: 9, assigned: 6, stuck: 2, completed: 9, days: 21 },
+    { province: "Procurement", avatar:'https://i.pravatar.cc/40?img=7', provincee: 'Arifin Maulana', total: 8, received: 6, assigned: 4, stuck: 1, completed: 7, days: 19 },
+];
+export default function AgentView({ pageSize = 3, headding, description, avatar }) {
+
     const [page, setPage] = useState(1);
     const [sortKey, setSortKey] = useState("province");
     const [sortDir, setSortDir] = useState("asc");
@@ -34,7 +44,8 @@ export default function Province({ pageSize = 3, headding,description,data }) {
                 <table className="w-full text-sm">
                     <thead className="text-gray-500 border-b border-[#E5E6E6]">
                         <tr>
-                            <Th onClick={() => handleSort("province")} label="Province" />
+                            <th className="py-4 text-start">Agent</th>
+                            <Th onClick={() => handleSort("province")} label="Department" />
                             <Th onClick={() => handleSort("total")} label="Total" />
                             <th className="px-6 py-4 text-center">Received</th>
                             <th className="px-6 py-4 text-center">Assigned</th>
@@ -46,6 +57,13 @@ export default function Province({ pageSize = 3, headding,description,data }) {
                     <tbody>
                         {current.map((row, i) => (
                             <tr key={i} className="border-b border-[#E5E6E6] last:border-none">
+                                <div className="flex items-center gap-2">
+                                    <img
+                                        src={row.avatar}
+                                        className="w-8 h-8 rounded-full"
+                                    />
+                                    <td className="py-4 font-medium text-gray-800">{row.provincee}</td>
+                                </div>
                                 <td className="px-6 py-4 font-medium text-gray-800">{row.province}</td>
                                 <td className="px-9 py-4 ">{row.total}</td>
                                 <td className="px-6 py-4 text-center"><Badge color="blue" value={row.received} /></td>
