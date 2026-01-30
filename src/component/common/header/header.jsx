@@ -21,6 +21,8 @@ export default function Header({ onMobileToggle }) {
         <header className="sticky top-0 bg-white border-b border-[#E0E0E0] py-3 md:py-5 ps-4 md:ps-7 pe-5 z-30 transition-all duration-300 left-64" style={{ right: "0" }}>
             <div className="flex gap-2">
                 <button
+                    title="Toggle sidebar"
+                    aria-label="Toggle sidebar"
                     onClick={onMobileToggle}
                     className="md:hidden">
                     <svg
@@ -44,9 +46,9 @@ export default function Header({ onMobileToggle }) {
                             <img src={Logo} alt="logo" className="" width={140} height={30} />
                         </div>
                         <div className="hidden md:grid">
-                            <div className="bg-[#F9FBFC] rounded-xl px-4 py-3  flex items-center gap-5">
+                            <div className="bg-[#E0E7EE] rounded-xl px-4 py-3  flex items-center gap-5">
                                 <SearchIcon />
-                                <input type="text" className="text-[#809FB8] text-base font-semibold outline-none" placeholder="search" />
+                                <input type="text" className="text-[#4A6572] text-base font-semibold outline-none" placeholder="search" />
                             </div>
 
                         </div>
@@ -54,6 +56,8 @@ export default function Header({ onMobileToggle }) {
                     <div className="flex gap-2 items-center">
                         <div className="relative inline-block text-left">
                             <button
+
+                                aria-label="Open Operations View"
                                 onClick={() => setDropdown(!DropdownOpen)}
                                 className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 transition">
                                 <div className="cursor-pointer">
@@ -81,6 +85,8 @@ export default function Header({ onMobileToggle }) {
                         <div className="relative inline-block text-left">
                             <div className="flex items-center">
                                 <button
+
+                                    aria-label="Open Operations View"
                                     onClick={() => setOpen(!open)}
                                     className="flex items-center cursor-pointer gap-3 hover:bg-gray-100 transition"
                                 >
@@ -91,7 +97,7 @@ export default function Header({ onMobileToggle }) {
                                         <span className="text-[#17181A] text-lg font-semibold">
                                             Mahmoud Tayyem
                                         </span>
-                                        <p className="text-[15px] text-[#809FB8] font-semibold">admin</p>
+                                        <p className="text-base text-[#4A6572] font-semibold">admin</p>
                                     </div>
                                     <div className="hidden md:block">
                                         <DropdownIcon />
@@ -99,7 +105,7 @@ export default function Header({ onMobileToggle }) {
                                 </button>
 
                                 {open && (
-                                    <div className="absolute right-0 top-16 mt-2 w-44 rounded-lg bg-white shadow-lg border">
+                                    <div aria-label="Toggle sidebar" className="absolute right-0 top-16 mt-2 w-44 rounded-lg bg-white shadow-lg border">
                                         <ul className="py-1 text-sm text-gray-700">
                                             <li>
                                                 <a
