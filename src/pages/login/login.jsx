@@ -194,56 +194,56 @@ export default function Login() {
         confirmPassword: "",
     });
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    let valid = true;
-    const newErrors = { email: "", password: "", confirmPassword: "" };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let valid = true;
+        const newErrors = { email: "", password: "", confirmPassword: "" };
 
-    if (!email) {
-        newErrors.email = "Email is required.";
-        valid = false;
-    }
+        if (!email) {
+            newErrors.email = "Email is required.";
+            valid = false;
+        }
 
-    if (!password) {
-        newErrors.password = "Password is required.";
-        valid = false;
-    }
+        if (!password) {
+            newErrors.password = "Password is required.";
+            valid = false;
+        }
 
-    if (!isLogin && password !== confirmPassword) {
-        newErrors.confirmPassword = "Passwords do not match.";
-        valid = false;
-    }
+        if (!isLogin && password !== confirmPassword) {
+            newErrors.confirmPassword = "Passwords do not match.";
+            valid = false;
+        }
 
-    setErrors(newErrors);
-    if (!valid) return;
+        setErrors(newErrors);
+        if (!valid) return;
 
-    if (isLogin) {
-        const correctEmail = "admin@example.com";
-        const correctPassword = "123456";
+        if (isLogin) {
+            const correctEmail = "admin@chand.com";
+            const correctPassword = "123456";
 
-        if (email === correctEmail && password === correctPassword) {
+            if (email === correctEmail && password === correctPassword) {
+                localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("userEmail", email);
+                alert(`Logged in as ${email}`);
+
+                window.location.href = "/";
+            } else {
+                alert("Invalid email or password");
+            }
+        } else {
+            console.log("Signing up:", { email, password, rememberMe });
+            alert(`Account created for ${email}`);
             localStorage.setItem("isLoggedIn", "true");
             localStorage.setItem("userEmail", email);
-            alert(`Logged in as ${email}`);
-
             window.location.href = "/";
-        } else {
-            alert("Invalid email or password");
         }
-    } else {
-        console.log("Signing up:", { email, password, rememberMe });
-        alert(`Account created for ${email}`);
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userEmail", email);
-        window.location.href = "/";
-    }
 
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    setRememberMe(false);
-    setErrors({ email: "", password: "", confirmPassword: "" });
-};
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setRememberMe(false);
+        setErrors({ email: "", password: "", confirmPassword: "" });
+    };
 
 
     return (
@@ -258,7 +258,7 @@ const handleSubmit = (e) => {
             </div>
             <div className="order-2 py-8 sm:py-0">
                 <div className="max-w-[500px] mx-auto px-4 flex flex-col justify-center h-full">
-                    <div className=" h-fit border p-5 border-[#E2E8F0] rounded-xl shadow">
+                    <div className="h-fit border p-5 border-[#E2E8F0] rounded-xl shadow">
                         <div className="mb-6 text-center">
                             <div className="flex justify-center  mb-6">
                                 <img src={Logo} alt="logo" width={200} height={45} />
@@ -329,7 +329,7 @@ const handleSubmit = (e) => {
                                 </div>
                             )}
 
-                            <div className="flex items-center gap-2">
+                            {/* <div className="flex items-center gap-2">
                                 <input
                                     type="checkbox"
                                     className="w-4 h-4 rounded"
@@ -339,7 +339,23 @@ const handleSubmit = (e) => {
                                 <label className="text-xs font-normal text-[#2D3748]">
                                     Remember me
                                 </label>
+                            </div> */}
+                            <div className="flex items-center gap-2">
+                                <input
+                                    type="checkbox"
+                                    id="rememberMe"
+                                    className="w-4 h-4 rounded"
+                                    checked={rememberMe}
+                                    onChange={(e) => setRememberMe(e.target.checked)}
+                                />
+                                <label
+                                    htmlFor="rememberMe"
+                                    className="text-xs font-normal text-[#2D3748]"
+                                >
+                                    Remember me
+                                </label>
                             </div>
+
 
                             <button
                                 type="submit"
@@ -349,7 +365,7 @@ const handleSubmit = (e) => {
                             </button>
                         </form>
 
-                        <div className="flex justify-center gap-1 mt-4 text-sm">
+                        {/* <div className="flex justify-center gap-1 mt-4 text-sm">
                             <p className="text-[#A0AEC0]">
                                 {isLogin ? "Don't have an account?" : "Already have an account?"}
                             </p>
@@ -362,7 +378,22 @@ const handleSubmit = (e) => {
                             >
                                 {isLogin ? "Sign Up" : "Sign In"}
                             </button>
+                        </div> */}
+                        <div className="flex justify-center gap-1 mt-4 text-sm">
+                            <p className="text-[#4A5568]">
+                                {isLogin ? "Don't have an account?" : "Already have an account?"}
+                            </p>
+                            <button
+                                className="text-[#087BB3] cursor-pointer font-bold"
+                                onClick={() => {
+                                    setIsLogin(!isLogin);
+                                    setErrors({ email: "", password: "", confirmPassword: "" });
+                                }}
+                            >
+                                {isLogin ? "Sign Up" : "Sign In"}
+                            </button>
                         </div>
+
                     </div>
                 </div>
             </div>
