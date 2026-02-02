@@ -90,9 +90,21 @@ export default function Header({ onMobileToggle }) {
                                     onClick={() => setOpen(!open)}
                                     className="flex items-center cursor-pointer gap-3 hover:bg-gray-100 transition"
                                 >
-                                    <div className="relative inline-block">
+                                    {/* <div className="relative inline-block">
                                         <img src={Tyyam} alt="tyyam" className="" width={51} height={51} loading="lazy" />
+                                    </div> */}
+                                    <div className="relative inline-block">
+                                        <img
+                                            src={Tyyam}
+                                            alt="tyyam"
+                                            width={51}
+                                            height={51}
+                                            loading="lazy"
+                                            decoding="async"
+                                            style={{ aspectRatio: "1 / 1" }}
+                                        />
                                     </div>
+
                                     <div className="text-left hidden md:grid">
                                         <span className="text-[#17181A] text-lg font-semibold">
                                             Mahmoud Tayyem

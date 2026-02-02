@@ -210,7 +210,6 @@ const employees = [
     },
 ];
 
-
 const CARD_DATA = [
     {
         id: 1,
@@ -240,6 +239,7 @@ const CARD_DATA = [
             { name: "27 Logins", value: 9, color: "#34B3F1" },
         ],
     },];
+
 export default function UserAudit() {
     const [selected, setSelected] = useState([]);
     const [page, setPage] = useState(1);
@@ -293,7 +293,7 @@ export default function UserAudit() {
         <div className="p-4 bg-[#F9FBFC] min-h-screen">
             <FilterHeader
                 title="Users Audit"
-                // subtitle="Monitor ticket volume, progress, and performance"
+                // subtitle="Monitor ticket volume, progress, and performance"   
                 dropdowns={DROPDOWN_BUTTON}
             />
             <div className="grid grid-cols-1 md:grid-cols-4 gap-2 mb-4">
