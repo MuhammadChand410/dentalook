@@ -99,7 +99,6 @@ export default function Header({ onMobileToggle }) {
                                             alt="tyyam"
                                             width={51}
                                             height={51}
-                                            loading="lazy"
                                             decoding="async"
                                             style={{ aspectRatio: "1 / 1" }}
                                         />
