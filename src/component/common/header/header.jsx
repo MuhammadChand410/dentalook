@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Logo, Tyyam } from "../../../assets/images"
+import { Logo, Logo2x, Tyyam, Tyyam2x } from "../../../assets/images"
 import { Link } from "react-router-dom";
 import { DropdownIcon, NotificationIcon, SearchIcon } from "../../../assets/icon";
 
@@ -42,9 +42,19 @@ export default function Header({ onMobileToggle }) {
                 </button>
                 <div className="flex w-full justify-between">
                     <div className="flex gap-20 items-center">
-                        <div className="">
+                        {/* <div className="">
                             <img src={Logo} alt="logo" className="" width={140} height={30} />
+                        </div> */}
+                        <div>
+                            <img
+                                src={Logo}
+                                srcSet={`${Logo} 1x, ${Logo2x} 2x`}
+                                alt="logo"
+                                width={140}
+                                height={30}
+                            />
                         </div>
+
                         <div className="hidden md:grid">
                             <div className="bg-[#E0E7EE] rounded-xl px-4 py-3  flex items-center gap-5">
                                 <SearchIcon />
@@ -93,7 +103,7 @@ export default function Header({ onMobileToggle }) {
                                     {/* <div className="relative inline-block">
                                         <img src={Tyyam} alt="tyyam" className="" width={51} height={51} loading="lazy" />
                                     </div> */}
-                                    <div className="relative inline-block">
+                                    {/* <div className="relative inline-block">
                                         <img
                                             src={Tyyam}
                                             alt="tyyam"
@@ -102,7 +112,19 @@ export default function Header({ onMobileToggle }) {
                                             decoding="async"
                                             style={{ aspectRatio: "1 / 1" }}
                                         />
+                                    </div> */}
+                                    <div className="relative inline-block">
+                                        <img
+                                            src={Tyyam}
+                                            srcSet={`${Tyyam} 1x, ${Tyyam2x} 2x`}
+                                            alt="tyyam"
+                                            width={51}
+                                            height={51}
+                                            decoding="async"
+                                            style={{ aspectRatio: "1 / 1" }}
+                                        />
                                     </div>
+
 
                                     <div className="text-left hidden md:grid">
                                         <span className="text-[#17181A] text-lg font-semibold">

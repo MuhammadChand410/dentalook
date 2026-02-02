@@ -700,7 +700,7 @@ export default function Dashboard() {
                     subtitle="Monitor ticket volume, progress, and performance"
                     dropdowns={DROPDOWN_BUTTON}
                 />
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     {DASHBOARD_BOX.map(card =>
                         <div className="px-4 py-4 bg-white rounded-2xl border border-[#E2E8F0]" key={card.id}>
                             <div className="flex items-center gap-2 pb-3">

@@ -34,6 +34,8 @@ export default function Sidebar({
                            `}
     >
       <button
+        title="Toggle sidebar"
+        aria-label="Toggle sidebar"
         onClick={() => {
           if (window.innerWidth < 768) {
             onMobileClose()
