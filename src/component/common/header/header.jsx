@@ -56,7 +56,7 @@ export default function Header({ onMobileToggle }) {
                         </div>
 
                         <div className="hidden md:grid">
-                            <div className="bg-[#E0E7EE] rounded-xl px-4 py-3  flex items-center gap-5">
+                            <div className="bg-[#F9FBFC] shadow-xs rounded-xl px-4 py-3  flex items-center gap-5">
                                 <SearchIcon />
                                 <input type="text" className="text-[#4A6572] text-base font-semibold outline-none" placeholder="search" />
                             </div>
