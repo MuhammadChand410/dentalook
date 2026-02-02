@@ -247,7 +247,7 @@ export default function Login() {
 
 
     return (
-        <div className="grid md:grid-cols-2 h-full overflow-hidden ">
+        <div className="grid md:grid-cols-2 items-center  h-full overflow-hidden ">
             <div className="relative order-1 min-h-[600px] md:min-h-screen">
                 {/* <img
                     src={LoginPage}
@@ -269,11 +269,11 @@ export default function Login() {
             <div className="order-2 py-8">
                 <main className="max-w-[500px] mx-auto px-4 flex flex-col justify-center h-full">
                     <div className="h-fit border p-5 border-[#E2E8F0] rounded-xl shadow">
-                        <div className="mb-6 text-center  min-h-[96px]">
+                        <div className="mb-6 text-center">
                             <div className="flex justify-center  mb-6">
                                 <img src={Logo} alt="logo" width={200} height={45} style={{ width: "200px", height: "45px" }} />
                             </div>
-                            <h2 className="font-sans text-[27px] font-semibold text-[#003C51] mb-2">
+                            <h2 className="font-sans text-[26px] font-semibold text-[#003C51] mb-2">
                                 {isLogin ? "Welcome to the Service Desk Portal" : "Create an Account"}
                             </h2>
                             <p className="text-sm font-semibold text-[#4A5568]">
@@ -283,7 +283,7 @@ export default function Login() {
                             </p>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="grid gap-6 min-h-[480px]
+                        <form onSubmit={handleSubmit} className="grid gap-6
 ">
                             <div>
                                 <label className="text-[#2D3748] text-sm font-normal mb-1">
@@ -299,7 +299,7 @@ export default function Login() {
                                 />
                                 {errors.email && (
                                     // <p className="text-red-500 text-xs mt-1">{errors.email}</p>
-                                    <p className="text-red-500 text-xs mt-1 min-h-[16px]">
+                                    <p className="text-red-500 text-xs mt-1">
                                         {errors.email}
                                     </p>
 
