@@ -257,16 +257,16 @@ export default function Login() {
                 />
             </div>
             <div className="order-2 py-8 sm:py-0">
-                <div className="max-w-[500px] mx-auto px-4 flex flex-col justify-center h-full">
+                <main className="max-w-[500px] mx-auto px-4 flex flex-col justify-center h-full">
                     <div className="h-fit border p-5 border-[#E2E8F0] rounded-xl shadow">
                         <div className="mb-6 text-center">
                             <div className="flex justify-center  mb-6">
-                                <img src={Logo} alt="logo" width={200} height={45} />
+                                <img src={Logo} alt="logo" width={200} height={45}  style={{ width: "200px", height: "45px" }} />
                             </div>
-                            <h2 className="text-[27px] font-semibold text-[#003C51] mb-2">
+                            <h2 className="font-sans text-[27px] font-semibold text-[#003C51] mb-2">
                                 {isLogin ? "Welcome to the Service Desk Portal" : "Create an Account"}
                             </h2>
-                            <p className="text-sm font-semibold text-[#A0AEC0]">
+                            <p className="text-sm font-semibold text-[#4A5568]">
                                 {isLogin
                                     ? "Enter your email and password to sign in"
                                     : "Fill in your details to create an account"}
@@ -395,7 +395,7 @@ export default function Login() {
                         </div>
 
                     </div>
-                </div>
+                </main>
             </div>
         </div>
     );
