@@ -248,20 +248,30 @@ export default function Login() {
 
     return (
         <div className="grid md:grid-cols-2 h-full overflow-hidden ">
-            <div className="relative md:sticky top-0 md:h-screen order-1 ">
-                <img
+            <div className="relative order-1 min-h-[600px] md:min-h-screen">
+                {/* <img
                     src={LoginPage}
                     alt="login-image"
                     className="w-full h-auto rounded-xl"
                     loading="lazy"
+                /> */}
+                <img
+                    src={LoginPage}
+                    alt="login-image"
+                    className="w-full h-auto rounded-xl"
+                    width={808}
+                    height={880}
+                    fetchpriority="high"
+                    loading="eager"
                 />
+
             </div>
-            <div className="order-2 py-8 sm:py-0">
+            <div className="order-2 py-8">
                 <main className="max-w-[500px] mx-auto px-4 flex flex-col justify-center h-full">
                     <div className="h-fit border p-5 border-[#E2E8F0] rounded-xl shadow">
-                        <div className="mb-6 text-center">
+                        <div className="mb-6 text-center  min-h-[96px]">
                             <div className="flex justify-center  mb-6">
-                                <img src={Logo} alt="logo" width={200} height={45}  style={{ width: "200px", height: "45px" }} />
+                                <img src={Logo} alt="logo" width={200} height={45} style={{ width: "200px", height: "45px" }} />
                             </div>
                             <h2 className="font-sans text-[27px] font-semibold text-[#003C51] mb-2">
                                 {isLogin ? "Welcome to the Service Desk Portal" : "Create an Account"}
@@ -273,7 +283,8 @@ export default function Login() {
                             </p>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="grid gap-6">
+                        <form onSubmit={handleSubmit} className="grid gap-6 min-h-[480px]
+">
                             <div>
                                 <label className="text-[#2D3748] text-sm font-normal mb-1">
                                     Email
@@ -287,7 +298,11 @@ export default function Login() {
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                                 {errors.email && (
-                                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                                    // <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                                    <p className="text-red-500 text-xs mt-1 min-h-[16px]">
+                                        {errors.email}
+                                    </p>
+
                                 )}
                             </div>
 
