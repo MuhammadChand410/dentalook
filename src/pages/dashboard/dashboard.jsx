@@ -776,30 +776,32 @@ export default function Dashboard() {
                                 className="relative w-full px-5 md:px-16 py-4 md:py-10 max-w-100 md:max-w-275 bg-white shadow-xl rounded-lg transform transition-all duration-300 overflow-y-auto max-h-[calc(100vh-100px)] md:max-h-[calc(100vh-50px)] opacity-100 translate-y-0 scale-100"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <div className="flex md:flex-row flex-col gap-2 pb-5 justify-between border-b border-[#E2E8F0]">
-                                    <h2 className="md:order-1 order-2 text-lg text-[#111B2B] font-semibold">Design Operational & Departmental Dashboard with Filter Options</h2>
-                                    <div className="flex md:order-2 order-1 justify-between md:items-center gap-3">
-                                        <p className="text-[#339D5C] text-lg font-semibold">Mark as Complete</p>
-                                        <button className="text-base hover:text-gray-600 text-black font-bold" onClick={() => setOpen(false)}>✕</button>
+                                <div className="sticky bg-white -top-5 md:-top-10 py-4">
+                                    <div className=" flex md:flex-row flex-col gap-2 pb-5 justify-between border-b border-[#E2E8F0]">
+                                        <h2 className="md:order-1 order-2 text-lg text-[#111B2B] font-semibold">Design Operational & Departmental Dashboard with Filter Options</h2>
+                                        <div className="flex md:order-2 order-1 justify-between md:items-center gap-3">
+                                            <p className="text-[#339D5C] text-lg font-semibold">Mark as Complete</p>
+                                            <button className="text-base hover:text-gray-600 text-black font-bold" onClick={() => setOpen(false)}>✕</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0] mb-0 md:mb-5">
-                                    <div className="flex md:flex-row flex-col gap-3 md:gap-9">
-                                        <TabButton
-                                            active={activeTab === "details"}
-                                            onClick={() => setActiveTab("details")}
-                                            text="Ticket Details"
-                                        />
-                                        <TabButton
-                                            active={activeTab === "history"}
-                                            onClick={() => setActiveTab("history")}
-                                            text="Ticket History"
-                                        />
-                                        <TabButton
-                                            active={activeTab === "review"}
-                                            onClick={() => setActiveTab("review")}
-                                            text="Review & Feedback"
-                                        />
+                                    <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0] mb-0 md:mb-5">
+                                        <div className="flex md:flex-row flex-col gap-3 md:gap-9">
+                                            <TabButton
+                                                active={activeTab === "details"}
+                                                onClick={() => setActiveTab("details")}
+                                                text="Ticket Details"
+                                            />
+                                            <TabButton
+                                                active={activeTab === "history"}
+                                                onClick={() => setActiveTab("history")}
+                                                text="Ticket History"
+                                            />
+                                            <TabButton
+                                                active={activeTab === "review"}
+                                                onClick={() => setActiveTab("review")}
+                                                text="Review & Feedback"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
 
