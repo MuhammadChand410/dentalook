@@ -773,7 +773,7 @@ export default function Dashboard() {
                             onClick={() => setOpen(false)}
                         >
                             <div
-                                className="relative w-full px-16 py-10 max-w-120 md:max-w-275 bg-white shadow-xl rounded-lg transform transition-all duration-300 overflow-y-auto max-h-[calc(100vh-50px)] opacity-100 translate-y-0 scale-100"
+                                className="relative w-full px-5 md:px-16 py-4 md:py-10 max-w-100 md:max-w-275 bg-white shadow-xl rounded-lg transform transition-all duration-300 overflow-y-auto max-h-[calc(100vh-100px)] md:max-h-[calc(100vh-50px)] opacity-100 translate-y-0 scale-100"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <div className="flex md:flex-row flex-col gap-2 pb-5 justify-between border-b border-[#E2E8F0]">

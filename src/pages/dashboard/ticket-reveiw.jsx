@@ -6,7 +6,7 @@ export default function TicketReveiw() {
         <div className="py-8">
             <div className="mb-8">
                 <h2 className="text-[11px] font-medium text-[#63716E] pb-4">How would you rate the experience?</h2>
-                <div className="flex md:flex-row flex-col items-start md:items-center justify-between">
+                <div className="grid lg:grid-cols-5 md:grid-cols-2 items-start md:items-center justify-between">
                     <VectorIcon />
                     <ArtBoardIcon />
                     <ArtBoardTwoIcon />
