@@ -89,9 +89,9 @@ import Setting from "../pages/setting/setting";
 import { lazy, Suspense } from "react";
 import Layouts from "../layouts/layouts";
 import ProtectedRoute from "../pages/login/protected";
-import Login from "../pages/login/login";
+// import Login from "../pages/login/login";
 
-
+const Login = lazy(() => import("../pages/login/login"));
 const Dashboard = lazy(() => import("../pages/dashboard/dashboard"));
 
 export default function MyRoutes() {

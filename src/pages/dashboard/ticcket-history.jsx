@@ -31,17 +31,17 @@ export default function TicketHistory() {
         },
     ]
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4 md:gap-8">
             {TCKETS_HISTORY.map((card) => (
                 <div key={card.id}>
-                    <div className="flex items-center gap-4 justify-between">
-                        <h2 className="text-[#475569] text-sm font-semibold pb-2">
+                    <div className="flex md:flex-row flex-col items-start md:items-center gap-1 md:gap-4 justify-between">
+                        <h2 className="text-[#475569] text-sm font-semibold pb-1 md:pb-2">
                             {card.text}
                         </h2>
 
                         {card.id !== 1 && (
                             <span
-                                className={`text-[10px] px-3 py-1 font-semibold rounded-2xl
+                                className={`text-[10px] px-3 py-1 font-semibold rounded-2xl mb-4
                                            ${card.button === "Complete"
                                         ? "text-[#339D5C] border border-[#339D5C] bg-green-50"
                                         : card.button === "Stuck"

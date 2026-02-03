@@ -773,18 +773,18 @@ export default function Dashboard() {
                             onClick={() => setOpen(false)}
                         >
                             <div
-                                className="relative w-full px-16 py-10  max-w-275 bg-white shadow-xl rounded-lg transform transition-all duration-300 overflow-y-auto max-h-[calc(100vh-50px)] opacity-100 translate-y-0 scale-100"
+                                className="relative w-full px-16 py-10 max-w-120 md:max-w-275 bg-white shadow-xl rounded-lg transform transition-all duration-300 overflow-y-auto max-h-[calc(100vh-50px)] opacity-100 translate-y-0 scale-100"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <div className="flex pb-5 justify-between border-b border-[#E2E8F0]">
-                                    <h2 className="text-lg text-[#111B2B] font-semibold">Design Operational & Departmental Dashboard with Filter Options</h2>
-                                    <div className="flex items-center gap-3">
+                                <div className="flex md:flex-row flex-col gap-2 pb-5 justify-between border-b border-[#E2E8F0]">
+                                    <h2 className="md:order-1 order-2 text-lg text-[#111B2B] font-semibold">Design Operational & Departmental Dashboard with Filter Options</h2>
+                                    <div className="flex md:order-2 order-1 justify-between md:items-center gap-3">
                                         <p className="text-[#339D5C] text-lg font-semibold">Mark as Complete</p>
                                         <button className="text-base hover:text-gray-600 text-black font-bold" onClick={() => setOpen(false)}>✕</button>
                                     </div>
                                 </div>
-                                <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0] mb-5">
-                                    <div className="flex gap-9">
+                                <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0] mb-0 md:mb-5">
+                                    <div className="flex md:flex-row flex-col gap-3 md:gap-9">
                                         <TabButton
                                             active={activeTab === "details"}
                                             onClick={() => setActiveTab("details")}
@@ -809,7 +809,7 @@ export default function Dashboard() {
                                         {activeTab === "history" && <TicketHistory />}
                                         {activeTab === "review" && <TicketReveiw />}
                                     </div>
-                                    <div className="max-w-118 h-141 w-full border-l border-[#E9EAEB] mx-auto bg-white flex flex-col">
+                                    <div className="max-w-118 h-50 md:h-141 w-full border-l border-[#E9EAEB] mx-auto bg-white flex flex-col">
                                         <div className="flex-1 overflow-y-auto p-4 space-y-4">
                                             {messages.map((msg) => (
                                                 <div
@@ -839,7 +839,7 @@ export default function Dashboard() {
                                             ))}
                                         </div>
 
-                                        <div className="p-3 border border-[#E9EAEB] flex items-center gap-2 bottom-0 sticky">
+                                        <div className="p-3 border border-[#E9EAEB] flex md:flex-row flex-col items-start md:items-center gap-2 bottom-0 sticky">
                                             <div className="flex items-center border border-[#D5D7DA] rounded-lg px-3 py-3 gap-3 max-w-87 w-full">
                                                 <InputIcon />
                                                 <input

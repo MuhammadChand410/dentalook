@@ -11,19 +11,19 @@ export default function TicketDetails() {
 
     return (
         <div className="">
-            <div className="py-4.5 flex items-center gap-1 justify-between border-b border-[#E2E8F0]">
+            <div className="py-4.5 flex md:flex-row flex-col items-start md:items-center gap-1 justify-between border-b border-[#E2E8F0]">
                 <p className="text-[#475569] text-xs font-semibold">Department</p>
                 <span className="text-[#272727] text-xs font-semibold">It Department</span>
             </div>
             {POPUP_BUTTON.map(card =>
-                <div className="py-4.5 flex items-center gap-1 justify-between border-b border-[#E2E8F0]" key={card.id}>
+                <div className="py-4.5 flex md:flex-row flex-col items-start md:items-center gap-2 md:gap-1 justify-between border-b border-[#E2E8F0]" key={card.id}>
                     <p className="text-[#475569] text-xs font-semibold">{card.text}</p>
                     <span className="text-[#373940] text-sm px-4 py-2 border border-[#E2E8F0] rounded-3xl font-semibold max-w-35 w-full text-center" style={{ background: "rgba(52, 179, 241, 0.05)" }}>{card.button}</span>
                 </div>
             )}
 
             <div>
-                <div className="flex px-5 items-center gap-4 border-b border-[#E2E8F0] mb-4">
+                <div className="flex md:flex-row flex-col px-5 items-start md:items-center gap-2 md:gap-4 border-b border-[#E2E8F0] mb-4">
                     <button
                         onClick={() => setActiveTab("info")}
                         className={`text-xs font-medium px-3 py-2 cursor-pointer ${activeTab === "info"

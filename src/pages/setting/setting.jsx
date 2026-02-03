@@ -1,4 +1,3 @@
-import Login from "../login/login";
 
 export default function Setting() {
     return(
