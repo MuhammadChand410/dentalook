@@ -67,23 +67,12 @@ export default function Login() {
 
 
     return (
-        <div className="grid md:grid-cols-2 items-center overflow-hidden ">
-            {/* <div className="relative order-1 min-h-150 md:min-h-screen">
-                <img
-                    src={LoginPage}
-                    alt="login-image"
-                    className="w-full h-auto rounded-xl"
-                    width={808}
-                    height={880}
-                    fetchpriority="high"
-                    loading="eager"
-                />
-            </div> */}
+        <div class="min-h-screen grid md:grid-cols-2 items-center overflow-x-hidden overflow-y-hidden">
             <div className="relative order-1 min-h-50 md:min-h-screen">
                 <img
                     src={LoginPage}
                     alt="login-image"
-                    className="w-full h-auto rounded-xl"
+                    class="max-w-full max-h-screen rounded-xl "
                     width={720}
                     height={713}
                     loading="eager"
@@ -96,9 +85,6 @@ export default function Login() {
                 <main className="max-w-125 mx-auto px-4 flex flex-col justify-center h-full">
                     <div className="h-fit border p-5 border-[#E2E8F0] rounded-xl shadow">
                         <div className="mb-6 text-center">
-                            {/* <div className="flex justify-center  mb-6">
-                                <img src={Logo} alt="logo" width={200} height={45} style={{ width: "200px", height: "45px" }} />
-                            </div> */}
                             <div className="flex justify-center mb-6">
                                 <img
                                     src={Logo}
@@ -191,7 +177,7 @@ export default function Login() {
                                     htmlFor="rememberMe"
                                     className="text-xs font-normal text-[#2D3748]"
                                 >
-                                    Remember me
+                                    Remember me 
                                 </label>
                             </div>
 

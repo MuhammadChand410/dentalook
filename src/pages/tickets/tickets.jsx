@@ -61,7 +61,7 @@ export default function Tickets() {
                                     setOpen(true);
                                 }}
 
-                                className="px-4 py-4 bg-white rounded-lg border border-[#E2E8F0] hover:border-[#087BB3]"
+                                className="px-4 py-4 cursor-pointer bg-white rounded-lg border border-[#E2E8F0] hover:border-[#087BB3]"
                             >
                                 <h3 className="text-base text-center font-semibold pb-1">
                                     {card.title}
@@ -75,13 +75,13 @@ export default function Tickets() {
                 </div>
 
                 {successOpen && (
-                    <div className="fixed inset-0 bg-[#00000085] z-15 flex items-center justify-center px-4">
+                    <div className="fixed inset-0 bg-[#00000085] z-35 flex items-center justify-center px-4">
                         <div className="bg-white rounded-xl shadow-lg max-w-170 w-full text-center" >
                             <div className="flex justify-between py-4 px-8 items-center gap-4 border-b border-[#E2E8F0]" >
                                 <h2 className="text-lg font-semibold text-[#111B2B]">
                                     {selectedTitle} Submitted
                                 </h2>
-                                <button className="text-base font-bold" onClick={() => setSuccessOpen(false)}>✕</button>
+                                <button className="text-base font-bold cursor-pointer" onClick={() => setSuccessOpen(false)}>✕</button>
                             </div>
                             <div className="p-8">
                                 <div className="flex justify-center mb-4">
@@ -130,7 +130,7 @@ export default function Tickets() {
                             >
                                 <div className="flex px-8 py-4 justify-between border-b border-[#E2E8F0]">
                                     <h2 className="text-lg text-[#111B2B] font-semibold">  {selectedTitle}</h2>
-                                    <button className="text-base font-bold" onClick={() => setOpen(false)}>✕</button>
+                                    <button className="text-base font-bold cursor-pointer" onClick={() => setOpen(false)}>✕</button>
                                 </div>
                                 <div className="px-8 py-8">
 
