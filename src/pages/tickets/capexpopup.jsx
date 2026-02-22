@@ -100,7 +100,7 @@ export default function CAPEXPopup({ onClose, onOpenCatalog, onCloseCatalog }) {
 
                     <form onSubmit={handleSubmit}>
                         <div className="bg-white rounded-2xl w-full mt-6">
-                            <div className="overflow-y-auto h-[76vh] px-6">
+                            <div className="overflow-y-auto h-[40vh] md:h-[76vh] px-6">
                                 <div className="mb-4 md:mb-8">
                                     <h3 className="text-sm font-medium text-[#63716E] mb-1.5">
                                         Is this addition, a repair, or a replacement?
@@ -229,48 +229,6 @@ export default function CAPEXPopup({ onClose, onOpenCatalog, onCloseCatalog }) {
 
                                 <h3 className="text-sm font-medium text-[#63716E] mb-2">Vendor Selection</h3>
 
-                                {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mb-4 md:mb-8">
-                                    <div
-                                        onClick={() => {
-                                            onOpenCatalog(true, handleAddItem);
-                                            setSelectedVendor("own");
-                                        }}
-
-                                        className={`cursor-pointer rounded-lg px-3 py-2 border
-                                 ${selectedVendor === "own"
-                                                ? "bg-[rgba(8,123,179,0.05)] text-[#087BB3] border-[#087BB3]"
-                                                : "bg-[#F7F7F7] border-transparent"
-                                            }`}
-                                    >
-                                        <p className="font-medium text-sm  mb-2.5">
-                                            DL Preferred Vendor
-                                        </p>
-                                        <p className="text-[#203430] text-xs font-normal">
-                                            Use our standardized vendor and pricing from the reference quotation
-                                        </p>
-                                    </div>
-
-                                    <div
-                                        onClick={() => {
-                                            setSelectedVendor("dl");
-                                            onCloseCatalog(false);
-                                        }
-
-                                        }
-                                        className={`cursor-pointer rounded-lg px-3 py-2 border transition
-                                 ${selectedVendor === "dl"
-                                                ? "bg-[rgba(8,123,179,0.05)] text-[#087BB3] border-[#087BB3]"
-                                                : "bg-[#F7F7F7] border-transparent"
-                                            }`}
-                                    >
-                                        <p className="font-medium text-sm  mb-2.5">
-                                            Use my own vendor
-                                        </p>
-                                        <p className="text-[#203430] text-xs font-normal">
-                                            Choose a different vendor based on your own quotation(s)
-                                        </p>
-                                    </div>
-                                </div> */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mb-4 md:mb-8">
 
                                     <div
@@ -316,17 +274,6 @@ export default function CAPEXPopup({ onClose, onOpenCatalog, onCloseCatalog }) {
                                     addedItems={addedItems}
                                     selectedVendor={selectedVendor}
                                 />
-                                {/* <h4 className="text-sm font-medium text-[#63716E] mb-4">
-                                    Quotations details and suggested choices
-                                </h4>
-
-                                {selectedVendor === "dl" && (
-                                    <SelcatedVendor addedItems={addedItems} />
-                                )}
-
-                                {selectedVendor === "own" && (
-                                    <SelcatedVendor addedItems={addedItems} />
-                                )} */}
 
                                 <div className="flex justify-end">
                                     <button

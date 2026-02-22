@@ -5,7 +5,7 @@ export default function SelcatedVendor({ addedItems = [] }) {
         <div className="mb-8 rounded-lg">
             <p className="max-w-140 text-xs font-medium text-[#63716E]"> <span className="text-[#1E1E1E] font-semibold">Please note:</span> If a vendor's quotation includes multiple items or units in a single document, each item must be entered as a separate line below. You may attach the same quotation PDF for each entry.</p>
             <div className="overflow-x-auto w-full">
-                <table className=" md:min-w-full min-w-[700px] text-sm border-collapse">
+                <table className=" md:min-w-full min-w-175 text-sm border-collapse">
                     <thead className="text-[#63716E] ">
                         <tr>
                             <th className="text-left flex items-center gap-1 px-4 py-3.5">Preferred
@@ -32,7 +32,7 @@ export default function SelcatedVendor({ addedItems = [] }) {
                                     <td className="px-4 py-2 ">
                                         <div className="flex gap-2 cursor-pointer">
                                             <FileIcon />
-                                            <input type="file" className="text-xs max-w-[60px] cursor-pointer" />
+                                            <input type="file" className="text-xs max-w-15 cursor-pointer" />
                                         </div>
                                     </td>
                                     <td className="px-4 py-2 border border-[#F2F2F2] text-xs">{item?.text || ''}</td>

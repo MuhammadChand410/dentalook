@@ -150,7 +150,7 @@ export default function DLCatalogPanel({ onClose, item, onAddItem }) {
               </div>
             </div>
 
-            <div className="overflow-y-auto h-[60vh] ff_dm_sans rounded-2xl">
+            <div className="overflow-y-auto h-[20vh] md:h-[60vh] ff_dm_sans rounded-2xl">
               {CATEGORIES.map((cat) => (
                 <div key={cat.id} className="bg-white rounded-2xl">
                   <button
