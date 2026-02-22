@@ -90,7 +90,7 @@ export default function DLCatalogPanel({ onClose, item, onAddItem }) {
     { id: 4, text: 'Purchase Price', },
   ]
   return (
-    <div className="bg-white max-w-130 md:w-150 rounded-xl shadow-lg">
+    <div className="bg-white max-w-100 md:w-150 rounded-xl shadow-lg">
       <div className="">
 
         {!showItemDetails && (
@@ -219,7 +219,7 @@ export default function DLCatalogPanel({ onClose, item, onAddItem }) {
                 <p className="cursor-pointer text-base text-[#4B5C6C]">✕</p>
               </button>
             </div>
-            <div className="p-6 overflow-y-auto h-[76vh] ff_dm_sans rounded-2xl">
+            <div className="p-6 overflow-y-auto h-[30vh] md:h-[76vh] ff_dm_sans rounded-2xl">
               <div className="border border-[#F2F2F2] shadow-xs rounded-2xl mb-4 md:mb-8">
                 <div className="relative mt-5 h-60  flex items-center justify-center">
                   <ChevronLeft

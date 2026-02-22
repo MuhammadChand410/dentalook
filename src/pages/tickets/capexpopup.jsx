@@ -65,7 +65,7 @@ export default function CAPEXPopup({ onClose, onOpenCatalog, onCloseCatalog }) {
 
 
     return (
-        <div className="bg-white max-w-130 md:max-w-195 w-full rounded-2xl py-6">
+        <div className="bg-white max-w-100 md:max-w-195 w-full rounded-2xl py-6">
             <div className="flex justify-between gap-5 items-center sticky top-0 z-20 px-6 rounded-2xl bg-white">
                 <h2 className="text-lg font-semibold">NEW CAPEX Request</h2>
                 <button onClick={onClose} className="text-gray-500 cursor-pointer">✕</button>
