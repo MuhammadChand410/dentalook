@@ -42,9 +42,7 @@ export default function Header({ onMobileToggle }) {
                 </button>
                 <div className="flex w-full justify-between">
                     <div className="flex gap-20 items-center">
-                        {/* <div className="">
-                            <img src={Logo} alt="logo" className="" width={140} height={30} />
-                        </div> */}
+                      
                         <div>
                             <img
                                 src={Logo}
@@ -100,19 +98,7 @@ export default function Header({ onMobileToggle }) {
                                     onClick={() => setOpen(!open)}
                                     className="flex items-center cursor-pointer gap-3 hover:bg-gray-100 transition"
                                 >
-                                    {/* <div className="relative inline-block">
-                                        <img src={Tyyam} alt="tyyam" className="" width={51} height={51} loading="lazy" />
-                                    </div> */}
-                                    {/* <div className="relative inline-block">
-                                        <img
-                                            src={Tyyam}
-                                            alt="tyyam"
-                                            width={51}
-                                            height={51}
-                                            decoding="async"
-                                            style={{ aspectRatio: "1 / 1" }}
-                                        />
-                                    </div> */}
+                                    
                                     <div className="relative inline-block">
                                         <img
                                             src={Tyyam}

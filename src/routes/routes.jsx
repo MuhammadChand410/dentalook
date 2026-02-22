@@ -9,6 +9,7 @@ import Leaderbooard from "../pages/leaderboard";
 import Useraudit from "../pages/user-audit";
 import Setings from "../pages/setting";
 import Logiin from "../pages/login";
+import DlVendor from "../pages/dl-vendor";
 
 const Login = lazy(() => import("../pages/login/login"));
 const Dashboard = lazy(() => import("../pages/dashboard/dashboard"));
@@ -33,6 +34,7 @@ export default function MyRoutes() {
               <Route path="/" element={<Ticket />} />
               <Route path="/dashboard" element={<Dashbord />} />
               <Route path="/analytics" element={<Analysis />} />
+              <Route path="/dl-vendor" element={<DlVendor />} />
               <Route path="/user-audit" element={<Useraudit />} />
               <Route path="/leaderboard" element={<Leaderbooard />} />
               <Route path="/settings" element={<Setings />} />

@@ -11,12 +11,12 @@ export default function Layouts() {
   return (
     <div className="h-screen flex flex-col">
 
-      {/* <Header /> */}
+
       <Header onMobileToggle={() => setMobileOpen(true)} />
 
       <div className="flex flex-1 overflow-hidden">
 
-        {/* <Aside /> */}
+      
         <Sidebar
           mobileOpen={mobileOpen}
           onMobileClose={() => setMobileOpen(false)}

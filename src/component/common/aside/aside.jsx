@@ -1,15 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
-import { Ticket, Dashboard, Analytics, UserAudit, Leaderboard, Settings } from "../../../assets/icon";
+import { Ticket, Dashboard, Analytics, UserAudit, Leaderboard, Settings, DlVendor } from "../../../assets/icon";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 const SIDEBAR_LINKS = [
-  { id: 1, name: "Tickets", path: "/", Icon: Ticket },
+  { id: 1, name: "Capex Requests", path: "/", Icon: Ticket },
   { id: 2, name: "Dashboard", path: "/dashboard", Icon: Dashboard },
   { id: 3, name: "Analytics", path: "/analytics", Icon: Analytics },
-  { id: 4, name: "UserAudit", path: "/user-audit", Icon: UserAudit },
-  { id: 5, name: "Leaderboard", path: "/leaderboard", Icon: Leaderboard },
-  { id: 6, name: "Settings", path: "/settings", Icon: Settings },
+  { id: 4, name: "DL Vendors", path: "/dl-vendor", Icon: DlVendor },
+  { id: 5, name: "UserAudit", path: "/user-audit", Icon: UserAudit },
+  { id: 6, name: "Leaderboard", path: "/leaderboard", Icon: Leaderboard },
+  { id: 7, name: "Settings", path: "/settings", Icon: Settings },
 ];
 
 export default function Sidebar({

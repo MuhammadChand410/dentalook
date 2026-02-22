@@ -769,22 +769,28 @@ export default function Dashboard() {
                 {open && (
                     <>
                         <div
-                            className=" fixed inset-0 bg-[#00000085] z-40 flex items-center justify-center px-4"
+                            className="fixed inset-0 bg-[#00000085] z-40 flex items-center justify-center px-4"
                             onClick={() => setOpen(false)}
                         >
                             <div
-                                className="relative w-full px-5 md:px-16 py-4 md:py-10 max-w-100 md:max-w-275 bg-white shadow-xl rounded-lg transform transition-all duration-300 overflow-y-auto max-h-[calc(100vh-100px)] md:max-h-[calc(100vh-50px)] opacity-100 translate-y-0 scale-100"
+                                className="relative w-full max-w-100 md:max-w-275 bg-white shadow-xl rounded-lg py-4 md:py-10"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <div className="sticky bg-white -top-5 md:-top-10 py-4">
+                                <div className="sticky bg-white py- px-5 md:px-16 rounded-lg">
                                     <div className=" flex md:flex-row flex-col gap-2 pb-5 justify-between border-b border-[#E2E8F0]">
-                                        <h2 className="md:order-1 order-2 text-lg text-[#111B2B] font-semibold">Design Operational & Departmental Dashboard with Filter Options</h2>
-                                        <div className="flex md:order-2 order-1 justify-between md:items-center gap-3">
-                                            <p className="text-[#339D5C] text-lg font-semibold">Mark as Complete</p>
-                                            <button className="text-base hover:text-gray-600 text-black font-bold" onClick={() => setOpen(false)}>✕</button>
+                                        <div className="flex items-center gap-4">
+                                            <h2 className="text-lg text-[#333] font-bold">Request Details - REQ-1024</h2>
+                                            <div className="flex items-center gap-2">
+                                                <span className="text px-2 py-1 rounded-2xl text-white text-xs font-semibold bg-[#FF5C00]">Medium</span>
+                                                <span className="text px-2 py-1 rounded-2xl text-[#2F80ED] text-xs font-semibold border border-[#2F80ED] bg-[#2F80ED]/5">Submitted on Friday Dec 5, 2025 <span className="text-[10px]">(3 days ago)</span></span>
+                                            </div>
+                                        </div>
+                                        <div className="">
+                                           
+                                            <button className="text-base hover:text-gray-600 text-black font-bold cursor-pointer" onClick={() => setOpen(false)}>✕</button>
                                         </div>
                                     </div>
-                                    <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0] mb-0 md:mb-5">
+                                    <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0]">
                                         <div className="flex md:flex-row flex-col gap-3 md:gap-9">
                                             <TabButton
                                                 active={activeTab === "details"}
@@ -805,7 +811,7 @@ export default function Dashboard() {
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col md:flex-row gap-6">
+                                <div className="px-5 md:px-16 flex flex-col md:flex-row gap-6 overflow-y-auto max-h-[calc(50vh-100px)] md:max-h-[calc(60vh-50px)] transform transition-all duration-300  opacity-100 translate-y-0 scale-100">
                                     <div className="bg-white max-w-118 w-full mx-auto">
                                         {activeTab === "details" && <TicketDetails />}
                                         {activeTab === "history" && <TicketHistory />}
