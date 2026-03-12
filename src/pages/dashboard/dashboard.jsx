@@ -773,12 +773,12 @@ export default function Dashboard() {
                             onClick={() => setOpen(false)}
                         >
                             <div
-                                className="relative w-full max-w-100 md:max-w-275 bg-white shadow-xl rounded-lg py-4 md:py-10"
+                                className="relative w-full max-w-2xl md:max-w-5xl bg-white shadow-xl rounded-lg py-4 md:py-8"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <div className="sticky bg-white py- px-5 md:px-16 rounded-lg">
-                                    <div className=" flex md:flex-row flex-col gap-2 pb-5 justify-between border-b border-[#E2E8F0]">
-                                        <div className="flex items-center gap-4">
+                                <div className="sticky bg-white py- px-5 md:px-8 rounded-lg">
+                                    <div className=" flex gap-2 pb-5 justify-between border-b border-[#E2E8F0]">
+                                        <div className="flex flex-col items-start gap-4">
                                             <h2 className="text-lg text-[#333] font-bold">Request Details - REQ-1024</h2>
                                             <div className="flex items-center gap-2">
                                                 <span className="text px-2 py-1 rounded-2xl text-white text-xs font-semibold bg-[#FF5C00]">Medium</span>
@@ -791,7 +791,7 @@ export default function Dashboard() {
                                         </div>
                                     </div>
                                     <div className="flex items-center mt-5 gap-3 border-b border-[#E2E8F0]">
-                                        <div className="flex md:flex-row flex-col gap-3 md:gap-9">
+                                        <div className="flex gap-6 md:gap-9">
                                             <TabButton
                                                 active={activeTab === "details"}
                                                 onClick={() => setActiveTab("details")}
@@ -811,13 +811,13 @@ export default function Dashboard() {
                                     </div>
                                 </div>
 
-                                <div className="px-5 md:px-16 flex flex-col md:flex-row gap-6 overflow-y-auto max-h-[calc(50vh-100px)] md:max-h-[calc(60vh-50px)] transform transition-all duration-300  opacity-100 translate-y-0 scale-100">
-                                    <div className="bg-white max-w-118 w-full mx-auto">
+                                <div className="px-5 md:px-8 flex flex-col md:flex-row gap-6 overflow-y-auto max-h-[calc(76vh-100px)] md:max-h-[calc(60vh-50px)] transform transition-all duration-300  opacity-100 translate-y-0 scale-100">
+                                    <div className="w-full lg:w-1/2 border-b lg:border-b-0 border-gray-200 overflow-y-auto sticky top-0 h-fit">
                                         {activeTab === "details" && <TicketDetails />}
                                         {activeTab === "history" && <TicketHistory />}
                                         {activeTab === "review" && <TicketReveiw />}
                                     </div>
-                                    <div className="max-w-118 h-50 md:h-141 w-full border-l border-[#E9EAEB] mx-auto bg-white flex flex-col">
+                                    <div className="lg:w-1/2 h-50 md:h-80 w-full border-l border-[#E9EAEB] mx-auto bg-white flex flex-col sticky top-0 bottom-0">
                                         <div className="flex-1 overflow-y-auto p-4 space-y-4">
                                             {messages.map((msg) => (
                                                 <div
@@ -847,8 +847,8 @@ export default function Dashboard() {
                                             ))}
                                         </div>
 
-                                        <div className="p-3 border border-[#E9EAEB] flex md:flex-row flex-col items-start md:items-center gap-2 bottom-0 sticky">
-                                            <div className="flex items-center border border-[#D5D7DA] rounded-lg px-3 py-3 gap-3 max-w-87 w-full">
+                                        <div className="p-3 border border-[#E9EAEB] flex items-start md:items-center justify-between gap-2 bottom-0 sticky">
+                                            <div className="w-full px-3.5 py-3 border border-[#E2E8F0] rounded-lg text-sm focus-within:ring-1 focus-within:ring-[#2F80ED] bg-white min-h-[48px] flex items-center relative">
                                                 <InputIcon />
                                                 <input
                                                     value={input}

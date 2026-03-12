@@ -34,7 +34,7 @@ export default function TicketHistory() {
         <div className="flex flex-col gap-4 md:gap-8">
             {TCKETS_HISTORY.map((card) => (
                 <div key={card.id}>
-                    <div className="flex md:flex-row flex-col items-start md:items-center gap-1 md:gap-4 justify-between">
+                    <div className="flex items-start md:items-center gap-1 md:gap-4 justify-between">
                         <h2 className="text-[#475569] text-sm font-semibold pb-1 md:pb-2">
                             {card.text}
                         </h2>
